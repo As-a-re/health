@@ -1,0 +1,42 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+motor==3.3.2
+pymongo==4.6.0
+aiohttp==3.9.1
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+
+# Machine Learning & NLP
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.14.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+tqdm>=4.65.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+
+# BioBERT for medical QA
+biobert-pytorch>=0.1.2
+sentence-transformers>=2.2.2
+
+# Translation
+huggingface-hub>=0.16.0
+torchaudio>=2.0.0
+# fairseq removed due to build issues on Windows
+sacremoses>=0.0.53
+
+# Translation will use a fallback implementation until Khaya AI package is available
+
+# Development
+tensorboard>=2.12.0
+black>=23.0.0
+isort>=5.12.0
+flake8>=6.0.0
+mypy>=1.0.0

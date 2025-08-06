@@ -1,0 +1,707 @@
+2025-08-05 15:20:21,665 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-05 15:20:21,764 - app.core.ai_models - WARNING - Akan model not found at akan_medical_model. Using fallback responses.
+2025-08-05 15:25:58,562 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-05 15:34:30,494 - app.api.routes.health - INFO - Processing health question: I have a headache, what do I do? ... (lang: en)
+2025-08-05 15:34:30,498 - app.core.ai_models - ERROR - Error generating medical response: 'AIModelManager' object has no attribute 'check_emergency_condition'
+2025-08-05 17:49:01,640 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-05 17:49:01,673 - app.core.ai_models - WARNING - Akan model not found at akan_medical_model. Using fallback responses.
+2025-08-05 19:22:58,004 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-05 19:23:00,316 - app.core.ai_models - WARNING - Akan model not found at akan_medical_model. Using fallback responses.
+2025-08-05 19:26:36,707 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-05 19:47:52,096 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-05 19:47:52,143 - app.core.ai_models - WARNING - Akan model not found at akan_medical_model. Using fallback responses.
+2025-08-05 19:56:21,533 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-05 20:32:11,909 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-05 20:32:11,933 - app.core.ai_models - WARNING - Akan model not found at akan_medical_model. Using fallback responses.
+2025-08-06 10:01:08,441 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:01:08,446 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:05:16,973 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:05:16,973 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:14:31,159 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:16:48,541 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:16:48,541 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:16:54,477 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:19:07,934 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-06 10:30:50,774 - app.api.routes.health - INFO - [Health Query d44a5ec7-0a59-4518-8ef2-bdc528b0ae3e] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:30:50,774 - app.api.routes.health - DEBUG - [Health Query d44a5ec7-0a59-4518-8ef2-bdc528b0ae3e] Generating response...
+2025-08-06 10:31:02,863 - app.api.routes.health - DEBUG - [Health Query d44a5ec7-0a59-4518-8ef2-bdc528b0ae3e] Saved to database
+2025-08-06 10:31:02,871 - app.api.routes.health - INFO - [Health Query d44a5ec7-0a59-4518-8ef2-bdc528b0ae3e] Successfully processed in 12.10s
+2025-08-06 10:40:13,597 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:40:13,599 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:40:13,634 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:40:13,648 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:40:20,627 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:40:21,017 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:40:21,099 - app.api.routes.health - INFO - [Health Query cee7ada4-43f8-4f9e-80e9-0875f3f88257] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:40:21,099 - app.api.routes.health - DEBUG - [Health Query cee7ada4-43f8-4f9e-80e9-0875f3f88257] Generating response...
+2025-08-06 10:40:21,099 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 135, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:40:21,375 - app.api.routes.health - DEBUG - [Health Query cee7ada4-43f8-4f9e-80e9-0875f3f88257] Saved to database
+2025-08-06 10:40:21,375 - app.api.routes.health - INFO - [Health Query cee7ada4-43f8-4f9e-80e9-0875f3f88257] Successfully processed in 0.28s
+2025-08-06 10:46:13,941 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:46:13,941 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:46:14,168 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:46:14,169 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:46:22,092 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:46:22,555 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:46:22,643 - app.api.routes.health - INFO - [Health Query 939d5a2d-b111-424f-ae05-bfd261e4f91f] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:46:22,644 - app.api.routes.health - DEBUG - [Health Query 939d5a2d-b111-424f-ae05-bfd261e4f91f] Generating response...
+2025-08-06 10:46:22,645 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 154, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:46:22,653 - app.api.routes.health - ERROR - [Health Query 939d5a2d-b111-424f-ae05-bfd261e4f91f] Error saving to database: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000023B88E9D7A0>, of type: <class 'coroutine'>
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 112, in ask_health_question
+    await create_health_query(query_data)
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\database.py", line 118, in create_health_query
+    await mongodb_db.health_queries.insert_one(query_doc)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 669, in insert_one
+    self._insert_one(
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1523, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1421, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 107, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1462, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2315, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2422, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 597, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers.py", line 322, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 996, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 968, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\network.py", line 151, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\message.py", line 762, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000023B88E9D7A0>, of type: <class 'coroutine'>
+2025-08-06 10:46:23,329 - app.api.routes.health - ERROR - [Health Query 939d5a2d-b111-424f-ae05-bfd261e4f91f] Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9D7A0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9D7A0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+2025-08-06 10:46:23,417 - app.api.routes.health - ERROR - [Health Query 939d5a2d-b111-424f-ae05-bfd261e4f91f] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9D7A0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9D7A0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 10:46:46,524 - app.api.routes.health - INFO - [Health Query 6bec14db-9ba9-4fc1-b240-3217862fb49d] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:46:46,527 - app.api.routes.health - DEBUG - [Health Query 6bec14db-9ba9-4fc1-b240-3217862fb49d] Generating response...
+2025-08-06 10:46:46,527 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 154, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:46:46,532 - app.api.routes.health - ERROR - [Health Query 6bec14db-9ba9-4fc1-b240-3217862fb49d] Error saving to database: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000023B88E9DE00>, of type: <class 'coroutine'>
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 112, in ask_health_question
+    await create_health_query(query_data)
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\database.py", line 118, in create_health_query
+    await mongodb_db.health_queries.insert_one(query_doc)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 669, in insert_one
+    self._insert_one(
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1523, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1421, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 107, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1462, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2315, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2422, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 597, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers.py", line 322, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 996, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 968, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\network.py", line 151, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\message.py", line 762, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000023B88E9DE00>, of type: <class 'coroutine'>
+2025-08-06 10:46:46,540 - app.api.routes.health - ERROR - [Health Query 6bec14db-9ba9-4fc1-b240-3217862fb49d] Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9DE00>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9DE00>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+2025-08-06 10:46:46,540 - app.api.routes.health - ERROR - [Health Query 6bec14db-9ba9-4fc1-b240-3217862fb49d] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9DE00>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000023B88E9DE00>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 10:50:26,988 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:50:26,996 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:50:28,299 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:50:28,299 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:50:35,322 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:50:36,214 - app.api.routes.health - INFO - [Health Query b3a82834-f652-417e-8bcc-3ed82b93e7ba] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:50:36,214 - app.api.routes.health - DEBUG - [Health Query b3a82834-f652-417e-8bcc-3ed82b93e7ba] Generating response...
+2025-08-06 10:50:36,214 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 154, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:50:36,228 - app.api.routes.health - ERROR - [Health Query b3a82834-f652-417e-8bcc-3ed82b93e7ba] Error saving to database: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x00000168AD719470>, of type: <class 'coroutine'>
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 112, in ask_health_question
+    await create_health_query(query_data)
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\database.py", line 118, in create_health_query
+    await mongodb_db.health_queries.insert_one(query_doc)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 669, in insert_one
+    self._insert_one(
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1523, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1421, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 107, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1462, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2315, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2422, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 597, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers.py", line 322, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 996, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 968, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\network.py", line 151, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\message.py", line 762, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x00000168AD719470>, of type: <class 'coroutine'>
+2025-08-06 10:50:36,287 - app.api.routes.health - ERROR - [Health Query b3a82834-f652-417e-8bcc-3ed82b93e7ba] Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AD719470>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AD719470>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+2025-08-06 10:50:36,300 - app.api.routes.health - ERROR - [Health Query b3a82834-f652-417e-8bcc-3ed82b93e7ba] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AD719470>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AD719470>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 10:50:39,242 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:52:22,815 - app.api.routes.health - INFO - [Health Query 3456e584-32bc-428c-9a9e-139dbe1364c2] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 10:52:22,815 - app.api.routes.health - DEBUG - [Health Query 3456e584-32bc-428c-9a9e-139dbe1364c2] Generating response...
+2025-08-06 10:52:22,815 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 154, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:52:22,822 - app.api.routes.health - ERROR - [Health Query 3456e584-32bc-428c-9a9e-139dbe1364c2] Error saving to database: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x00000168AC003780>, of type: <class 'coroutine'>
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 112, in ask_health_question
+    await create_health_query(query_data)
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\database.py", line 118, in create_health_query
+    await mongodb_db.health_queries.insert_one(query_doc)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 669, in insert_one
+    self._insert_one(
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1523, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1421, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 107, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1462, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2315, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2422, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 597, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers.py", line 322, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 996, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 968, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\network.py", line 151, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\message.py", line 762, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x00000168AC003780>, of type: <class 'coroutine'>
+2025-08-06 10:52:22,840 - app.api.routes.health - ERROR - [Health Query 3456e584-32bc-428c-9a9e-139dbe1364c2] Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AC003780>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AC003780>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+2025-08-06 10:52:22,840 - app.api.routes.health - ERROR - [Health Query 3456e584-32bc-428c-9a9e-139dbe1364c2] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AC003780>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x00000168AC003780>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 10:58:34,430 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:58:34,431 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:58:40,724 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 10:58:41,150 - app.api.routes.health - INFO - [Health Query c1ec2fe2-fe69-4d2a-a7ca-e4f9c2a769ed] Received question: what are symptoms of malaria... (lang: en)
+2025-08-06 10:58:41,150 - app.api.routes.health - DEBUG - [Health Query c1ec2fe2-fe69-4d2a-a7ca-e4f9c2a769ed] Generating response...
+2025-08-06 10:58:41,158 - app.core.medical_qa - ERROR - Error generating answer: cannot access local variable 'outputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 154, in answer_question
+    "confidence": float(torch.max(torch.softmax(outputs.start_logits, dim=1))),
+                                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'outputs' where it is not associated with a value
+2025-08-06 10:58:41,163 - app.api.routes.health - ERROR - [Health Query c1ec2fe2-fe69-4d2a-a7ca-e4f9c2a769ed] Error saving to database: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000025D47BC1AD0>, of type: <class 'coroutine'>
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 112, in ask_health_question
+    await create_health_query(query_data)
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\database.py", line 118, in create_health_query
+    await mongodb_db.health_queries.insert_one(query_doc)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 669, in insert_one
+    self._insert_one(
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1523, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1421, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 107, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 1462, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2315, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\mongo_client.py", line 2422, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\collection.py", line 597, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers.py", line 322, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 996, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\pool.py", line 968, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\network.py", line 151, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\message.py", line 762, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <coroutine object MedicalQA._get_fallback_response at 0x0000025D47BC1AD0>, of type: <class 'coroutine'>
+2025-08-06 10:58:41,204 - app.api.routes.health - ERROR - [Health Query c1ec2fe2-fe69-4d2a-a7ca-e4f9c2a769ed] Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000025D47BC1AD0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000025D47BC1AD0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+2025-08-06 10:58:41,213 - app.api.routes.health - ERROR - [Health Query c1ec2fe2-fe69-4d2a-a7ca-e4f9c2a769ed] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000025D47BC1AD0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+response
+  Input should be a valid string [type=string_type, input_value=<coroutine object Medical...e at 0x0000025D47BC1AD0>, input_type=coroutine]
+    For further information visit https://errors.pydantic.dev/2.5/v/string_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 10:58:44,885 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 10:58:44,885 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 10:58:52,040 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 11:06:22,835 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 11:06:22,839 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 11:06:27,089 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 11:06:27,089 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 11:08:35,781 - app.api.routes.health - INFO - [Health Query 04381f34-9c90-4662-aeae-5f823349210a] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 11:08:35,781 - app.api.routes.health - DEBUG - [Health Query 04381f34-9c90-4662-aeae-5f823349210a] Generating response...
+2025-08-06 11:08:35,807 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 11:08:36,357 - app.core.ai_models - ERROR - Error in BioBERT QA: name 'AutoTokenizer' is not defined
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\ai_models.py", line 306, in generate_medical_response
+    qa_result = await self.medical_qa.answer_question(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 163, in answer_question
+    await self.initialize()
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 130, in initialize
+    self.qa_tokenizer = AutoTokenizer.from_pretrained(biobert_model_name)
+                        ^^^^^^^^^^^^^
+NameError: name 'AutoTokenizer' is not defined
+2025-08-06 11:08:37,434 - app.core.ai_models - ERROR - Search error: 0, message='Attempt to decode JSON with unexpected mimetype: application/x-javascript', url=URL('https://api.duckduckgo.com/?q=What+are+symptoms+of+malaria?+health+medical&format=json&no_html=1&skip_disambig=1')
+2025-08-06 11:08:37,738 - app.api.routes.health - DEBUG - [Health Query 04381f34-9c90-4662-aeae-5f823349210a] Saved to database
+2025-08-06 11:08:37,752 - app.api.routes.health - ERROR - [Health Query 04381f34-9c90-4662-aeae-5f823349210a] Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+2025-08-06 11:08:37,764 - app.api.routes.health - ERROR - [Health Query 04381f34-9c90-4662-aeae-5f823349210a] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 11:09:53,320 - app.api.routes.health - INFO - [Health Query 74365972-e4a4-491e-9732-4abd0173a44c] Received question: What are symptoms of malaria?... (lang: en)
+2025-08-06 11:09:53,320 - app.api.routes.health - DEBUG - [Health Query 74365972-e4a4-491e-9732-4abd0173a44c] Generating response...
+2025-08-06 11:09:53,358 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 11:09:56,587 - app.core.ai_models - ERROR - Error in BioBERT QA: name 'AutoTokenizer' is not defined
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\ai_models.py", line 306, in generate_medical_response
+    qa_result = await self.medical_qa.answer_question(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 163, in answer_question
+    await self.initialize()
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 130, in initialize
+    self.qa_tokenizer = AutoTokenizer.from_pretrained(biobert_model_name)
+                        ^^^^^^^^^^^^^
+NameError: name 'AutoTokenizer' is not defined
+2025-08-06 11:09:58,884 - app.core.ai_models - ERROR - Search error: 0, message='Attempt to decode JSON with unexpected mimetype: application/x-javascript', url=URL('https://api.duckduckgo.com/?q=What+are+symptoms+of+malaria?+health+medical&format=json&no_html=1&skip_disambig=1')
+2025-08-06 11:09:59,388 - app.api.routes.health - DEBUG - [Health Query 74365972-e4a4-491e-9732-4abd0173a44c] Saved to database
+2025-08-06 11:09:59,388 - app.api.routes.health - ERROR - [Health Query 74365972-e4a4-491e-9732-4abd0173a44c] Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+2025-08-06 11:09:59,398 - app.api.routes.health - ERROR - [Health Query 74365972-e4a4-491e-9732-4abd0173a44c] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 11:15:43,114 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-06 11:18:37,757 - app.api.routes.health - INFO - [Health Query 6c0ba2e1-a3e9-46d6-a411-9701d90c10ea] Received question: What are the symptoms of malaria?... (lang: en)
+2025-08-06 11:18:37,757 - app.api.routes.health - DEBUG - [Health Query 6c0ba2e1-a3e9-46d6-a411-9701d90c10ea] Generating response...
+2025-08-06 11:18:37,757 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 11:18:37,858 - app.core.ai_models - ERROR - Error in BioBERT QA: name 'AutoTokenizer' is not defined
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\ai_models.py", line 306, in generate_medical_response
+    qa_result = await self.medical_qa.answer_question(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 163, in answer_question
+    await self.initialize()
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\core\medical_qa.py", line 130, in initialize
+    self.qa_tokenizer = AutoTokenizer.from_pretrained(biobert_model_name)
+                        ^^^^^^^^^^^^^
+NameError: name 'AutoTokenizer' is not defined
+2025-08-06 11:18:39,267 - app.core.ai_models - ERROR - Search error: 0, message='Attempt to decode JSON with unexpected mimetype: application/x-javascript', url=URL('https://api.duckduckgo.com/?q=What+are+the+symptoms+of+malaria?+health+medical&format=json&no_html=1&skip_disambig=1')
+2025-08-06 11:18:39,773 - app.api.routes.health - DEBUG - [Health Query 6c0ba2e1-a3e9-46d6-a411-9701d90c10ea] Saved to database
+2025-08-06 11:18:39,774 - app.api.routes.health - ERROR - [Health Query 6c0ba2e1-a3e9-46d6-a411-9701d90c10ea] Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+2025-08-06 11:18:39,774 - app.api.routes.health - ERROR - [Health Query 6c0ba2e1-a3e9-46d6-a411-9701d90c10ea] HTTP 500 error: Error preparing response: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 135, in ask_health_question
+    response = HealthQueryResponse(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\main.py", line 164, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for HealthQueryResponse
+confidence
+  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.5/v/float_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 148, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-06 12:23:29,469 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 12:23:29,559 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
