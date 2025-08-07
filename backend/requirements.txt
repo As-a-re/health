@@ -12,31 +12,40 @@ pydantic-settings==2.1.0
 python-dotenv==1.0.0
 
 # Machine Learning & NLP
-torch>=2.0.0
-transformers>=4.30.0
-datasets>=2.14.0
-sentencepiece>=0.1.99
-protobuf>=3.20.0
-tqdm>=4.65.0
-numpy>=1.24.0
-pandas>=2.0.0
-scikit-learn>=1.2.0
+torch>=2.0.0,<3.0.0  # PyTorch with version constraint for compatibility
+transformers>=4.30.0,<5.0.0
+datasets>=2.14.0,<3.0.0
+sentencepiece>=0.1.99,<0.2.0
+protobuf>=3.20.0,<4.0.0
+tqdm>=4.65.0,<5.0.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scikit-learn>=1.2.0,<2.0.0
 
-# BioBERT for medical QA
-biobert-pytorch>=0.1.2
-sentence-transformers>=2.2.2
+# BioBERT and related
+tokenizers>=0.13.3,<0.15.0  # Required for BioBERT
+safetensors>=0.3.1,<1.0.0  # For model loading
+accelerate>=0.20.3,<1.0.0  # For distributed training/inference
 
 # Translation
-huggingface-hub>=0.16.0
-torchaudio>=2.0.0
-# fairseq removed due to build issues on Windows
-sacremoses>=0.0.53
+huggingface-hub>=0.16.0,<1.0.0
+sacremoses>=0.0.53,<0.1.0  # For tokenization
 
-# Translation will use a fallback implementation until Khaya AI package is available
+# Text processing
+regex>=2022.10.31,<2024.0.0  # Required by transformers
+requests>=2.28.2,<3.0.0  # For HTTP requests
 
 # Development
-tensorboard>=2.12.0
-black>=23.0.0
-isort>=5.12.0
-flake8>=6.0.0
-mypy>=1.0.0
+tensorboard>=2.12.0,<3.0.0
+black>=23.0.0,<24.0.0
+isort>=5.12.0,<6.0.0
+flake8>=6.0.0,<7.0.0
+mypy>=1.0.0,<2.0.0
+pytest>=7.4.0,<8.0.0
+pytest-asyncio>=0.21.0,<1.0.0
+
+# Note: The following are included in the requirements but have known issues on Windows:
+# - fairseq (requires C++ build tools)
+# - torchaudio (may require specific CUDA versions)
+# - biobert-pytorch (using transformers' AutoModelForQuestionAnswering instead)
+# - sentence-transformers (not needed with direct transformers usage)

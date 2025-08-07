@@ -1,17 +1,27 @@
 import torch
 import aiohttp
 import logging
-import aiohttp
 import json
-from typing import Dict, Optional, List
+import os
+from typing import Dict, Optional, List, Tuple, Any
+from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
+from datetime import datetime
 import re
 
 logger = logging.getLogger(__name__)
 
 class MedicalQA:
-    """Simplified medical QA system with local knowledge base"""
+    """Medical QA system using BioBERT for question answering with fallback to local knowledge base"""
     
     def __init__(self):
+        self.model = None
+        self.tokenizer = None
+        self.qa_pipeline = None
+        self.initialized = False
+        self.context = ""
+        self.conversation_history = []
+        
+        # Local knowledge base as fallback
         self.knowledge_base = {
             "malaria": {
                 "en": "Malaria is caused by parasites transmitted through mosquito bites. Symptoms include high fever, chills, headache, nausea, vomiting, muscle pain, and fatigue. Severe cases can cause jaundice, seizures, coma, or death if untreated. Seek immediate medical attention if you suspect malaria.",
@@ -26,40 +36,122 @@ class MedicalQA:
                 "ak": "Ɔhyew yɛ nipadua mu hyew a ɛkɔ soro kakra, ɛtaa fi yare bi nti. Nipadua mu hyew a ɛyɛ dɛ yɛ 98.6°F (37°C). Sɛ nipadua mu hyew no so soro kɔ 100.4°F (38°C) anaa ɛboro saa a, wubetumi aka sɛ ɔhyew. Home, nom nsuo pii, na sɛ ɛho hia a, nom nnuru a ɛtumi te ɔhyew so. Sɛ ɔhyew no so soro kɔ 103°F (39.4°C) anaa ɛboro saa, anaa sɛ ɔhyew no da so abɛboro nnansa 3 a, kɔ oduruyɛfoɔ hɔ."
             }
         }
+        
+    async def initialize(self):
+        """Initialize the BioBERT model and tokenizer"""
+        try:
+            model_name = "monologg/biobert_v1.1_pubmed"
+            logger.info(f"Loading BioBERT model: {model_name}")
+            
+            # Load model and tokenizer
+            self.model = AutoModelForQuestionAnswering.from_pretrained(model_name)
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            
+            # Create QA pipeline
+            self.qa_pipeline = pipeline(
+                'question-answering',
+                model=self.model,
+                tokenizer=self.tokenizer,
+                device=0 if torch.cuda.is_available() else -1
+            )
+            
+            self.initialized = True
+            logger.info("✅ BioBERT model loaded successfully")
+            
+        except Exception as e:
+            logger.error(f"❌ Error initializing BioBERT model: {str(e)}")
+            logger.warning("⚠️ Falling back to local knowledge base only")
+            self.initialized = False
+            
+    def _get_context_for_question(self, question: str) -> str:
+        """Get relevant context for the question"""
+        # For now, use the conversation history as context
+        # In a real implementation, you might want to retrieve relevant context from a knowledge base
+        return " ".join([msg["content"] for msg in self.conversation_history[-5:]])
+        
+    def _update_conversation_history(self, role: str, content: str):
+        """Update conversation history with new message"""
+        self.conversation_history.append({
+            "role": role,
+            "content": content,
+            "timestamp": datetime.utcnow().isoformat()
+        })
+        
+        # Keep only the last 10 messages
+        self.conversation_history = self.conversation_history[-10:]
     
-    async def answer_question(self, question: str, language: str = "en") -> Dict[str, any]:
+    async def answer_question(self, question: str, language: str = "en", context: str = None) -> Dict[str, any]:
         """
-        Answer a medical question using the local knowledge base
+        Answer a medical question using BioBERT with fallback to local knowledge base
         
         Args:
             question: The medical question
             language: Language code (en/ak)
+            context: Optional context for the question
             
         Returns:
             Dict containing answer and metadata
         """
         try:
-            # Simple keyword matching for demo purposes
+            # Update conversation history with user's question
+            self._update_conversation_history("user", question)
+            
+            # Try to get answer from BioBERT if initialized
+            if self.initialized and self.qa_pipeline is not None:
+                try:
+                    # Get context from conversation history if not provided
+                    qa_context = context or self._get_context_for_question(question)
+                    
+                    # Get answer from BioBERT
+                    result = self.qa_pipeline({
+                        'question': question,
+                        'context': qa_context or ""
+                    })
+                    
+                    # If we got a valid answer with reasonable confidence
+                    if result and result.get('score', 0) > 0.1:
+                        answer = result['answer']
+                        
+                        # Update conversation history with system's response
+                        self._update_conversation_history("assistant", answer)
+                        
+                        return {
+                            "answer": answer,
+                            "language": "en",  # BioBERT answers in English
+                            "confidence": float(result['score']),
+                            "source": "BioBERT"
+                        }
+                    
+                except Exception as e:
+                    logger.warning(f"BioBERT QA failed: {str(e)}")
+            
+            # Fallback to local knowledge base if BioBERT fails or not initialized
             question_lower = question.lower()
             
             # Check for known conditions
             for condition, response in self.knowledge_base.items():
                 if condition in question_lower:
+                    answer = response.get(language, response["en"])
+                    self._update_conversation_history("assistant", answer)
+                    
                     return {
-                        "answer": response.get(language, response["en"]),
+                        "answer": answer,
                         "language": language,
                         "confidence": 0.9,
                         "source": "Local Knowledge Base"
                     }
             
-            # Fallback response
+            # Final fallback response
             fallback = {
                 "en": "I'm sorry, I don't have enough information to answer that question. Please consult a healthcare professional for medical advice.",
                 "ak": "Mepa wo kyɛw, minni nkyerɛaseɛ a ɛfa saa asɛm no ho. Yɛsrɛ wo kɔ nhwehwɛmufoɔ nkyɛn wɔ ayaresa mu."
             }
             
+            answer = fallback.get(language, fallback["en"])
+            self._update_conversation_history("assistant", answer)
+            
             return {
-                "answer": fallback.get(language, fallback["en"]),
+                "answer": answer,
                 "language": language,
                 "confidence": 0.1,
                 "source": "System"

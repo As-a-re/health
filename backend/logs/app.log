@@ -705,3 +705,16 @@ Traceback (most recent call last):
 fastapi.exceptions.HTTPException
 2025-08-06 12:23:29,469 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
 2025-08-06 12:23:29,559 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 13:15:05,301 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 13:15:05,317 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 13:46:51,774 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 13:46:51,795 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 13:46:57,461 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-06 14:30:46,051 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-06 14:30:46,063 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-06 14:30:51,918 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-07 11:01:13,501 - app.core.ai_models - INFO - AI Manager initialized with offline medical knowledge
+2025-08-07 11:01:13,589 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-07 11:01:25,773 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-07 13:23:34,285 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-07 13:23:41,525 - app.core.medical_qa - INFO - Using fallback translation implementation

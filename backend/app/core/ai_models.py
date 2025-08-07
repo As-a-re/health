@@ -27,7 +27,43 @@ class AIModelManager:
         
         # Fallback knowledge base
         self.medical_knowledge = {
-            # Common symptoms
+            # Infectious diseases
+            "malaria": {
+                "en": "Malaria is caused by parasites spread through mosquito bites. Symptoms include high fever, chills, headache, and fatigue. Seek immediate medical attention if you suspect malaria.",
+                "ak": "Atiridii yɛ ɔyare a ɛfi asan a ɛkɔ so wɔ ɔsram no nipadua mu. Nnuru a wɔde sa atiridii no bi ne chloroquine, artemisinin-based combination therapies (ACTs), ne foforɔ. Sɛ wo susu sɛ wobɛtumi anya atiridii a, kɔ oduruyɛbea ntɛm ara."
+            },
+            "covid": {
+                "en": "COVID-19 is a viral respiratory illness. Symptoms include cough, fever, loss of taste/smell, and shortness of breath. Prevent by wearing masks, washing hands, and vaccination.",
+                "ak": "COVID-19 yɛ yare a ɛfa mframa mu. N'nsɛnhunu ne su, ɔhyew, dɛdɛɛdɛ ne ahomeguare. To ho ban fa mask, hohor wo nsam, na yɛ vaccine."
+            },
+            "tuberculosis": {
+                "en": "Tuberculosis (TB) is an infectious disease affecting the lungs. Symptoms: persistent cough, weight loss, night sweats. Treatment requires long-term antibiotics.",
+                "ak": "Tuberculosis yɛ yare a ɛtɔ mmirika na ɛka nipadua mu. Nsɛnhunu: su a ɛnnware, nipadua mu fam, anadwo susu. Yare yi hia nnuro a wobɛfa akyɛ."
+            },
+            "typhoid": {
+                "en": "Typhoid fever is caused by Salmonella bacteria, spread through contaminated food/water. Symptoms: high fever, abdominal pain, diarrhea. Treat with antibiotics.",
+                "ak": "Typhoid yɛ yare a ɛfi nsuo anaa aduane a ɛho ntew so. Nsɛnhunu: ɔhyew kɛse, yafunu yare, nsu. Fa nnuro kɔhwehwɛ oduruyɛfoɔ."
+            },
+
+            # Chronic diseases
+            "diabetes": {
+                "en": "Diabetes is a chronic condition where blood sugar is too high. Symptoms: frequent urination, thirst, fatigue. Managed by diet, exercise, and medication.",
+                "ak": "Sukɔm yɛ ɔyare a mogya mu sukuruwa dɔɔso. Nsɛnhunu: nsuo a wopɛ dodo, home, brɛ. Di aduane pa, yɛ mmirika, na fa nnuro."
+            },
+            "asthma": {
+                "en": "Asthma is a condition where airways narrow and swell. Symptoms: wheezing, coughing, chest tightness. Use inhalers and avoid triggers.",
+                "ak": "Asthma yɛ yare a ɛma mframa kwan to. Nsɛnhunu: ahomeguare, su, yafunu mu den. Fa inhaler na to ho ban."
+            },
+            "sickle cell": {
+                "en": "Sickle cell disease affects red blood cells, causing pain, anemia, and infections. Seek regular medical care and stay hydrated.",
+                "ak": "Sickle cell yɛ yare a ɛka mogya mu. Ede yaw, mogya mu fam, ne yare foforɔ ba. Kɔ oduruyɛbea daa na nom nsuo pii."
+            },
+            "hypertension": {
+                "en": "High blood pressure often has no symptoms but can lead to serious health issues. Maintain a healthy diet, exercise regularly, limit alcohol, and avoid smoking.",
+                "ak": "Mogya a ɛyɛ den kɛse pii no ɛnni nneɛma a ɛda adi, nanso ɛtumi de ɔhaw akɛse aba wo yare mu. Di aduane pa, yɛ mmirika, fa nsa gu, na yɛ mogya mu nsunsuansoɔ nhwehwɛmu daa."
+            },
+
+            # Symptoms
             "headache": {
                 "en": "Headaches can be caused by stress, dehydration, lack of sleep, eye strain, or underlying conditions. Rest in a quiet, dark room, stay hydrated, and apply cold/warm compress. Seek medical attention if severe or persistent.",
                 "ak": "Ti yare betumi afi stress, nsuo a wonnom, nna a wonnya, aniwa mu haw, anaa ɔyare foforɔ mu ba. Home wɔ komm ne sum beae, nom nsuo pii, na fa nsuonwini anaa hyew nneɛma to wo ti so."
@@ -36,17 +72,68 @@ class AIModelManager:
                 "en": "Fever is the body's response to infection. Normal temperature is 98.6°F (37°C). Rest, drink fluids, and use fever reducers if appropriate. Seek medical care if fever exceeds 103°F (39.4°C) or persists.",
                 "ak": "Ɔhyew yɛ nipadua no ɔkwan a ɔfa so ko tia nyarewa. Nipadua mu hyew a ɛyɛ dɛ yɛ 98.6°F (37°C). Home, nom nsuo pii, na sɛ ɛho hia a, nom nnuro a ɛtumi te ɔhyew so."
             },
-            # Expanded medical conditions
-            "malaria": {
-                "en": "Malaria is caused by parasites spread through mosquito bites. Symptoms include high fever, chills, headache, and fatigue. Seek immediate medical attention if you suspect malaria.",
-                "ak": "Atiridii yɛ ɔyare a ɛfi asan a ɛkɔ so wɔ ɔsram no nipadua mu. Nnuru a wɔde sa atiridii no bi ne chloroquine, artemisinin-based combination therapies (ACTs), ne foforɔ. Sɛ wo susu sɛ wobɛtumi anya atiridii a, kɔ oduruyɛbea ntɛm ara."
+            "cough": {
+                "en": "Coughing helps clear the airways. It can be caused by infection, allergies, or irritants. If cough persists more than 2 weeks, see a doctor.",
+                "ak": "Su boa ma mframa kwan ho tew. Ɛbetumi afi yare, allergies, anaa nneɛma a ɛhaw. Sɛ su no to so kyɛ, kɔhwehwɛ oduruyɛfoɔ."
             },
-            "hypertension": {
-                "en": "High blood pressure often has no symptoms but can lead to serious health issues. Maintain a healthy diet, exercise regularly, limit alcohol, and avoid smoking.",
-                "ak": "Mogya a ɛyɛ den kɛse pii no ɛnni nneɛma a ɛda adi, nanso ɛtumi de ɔhaw akɛse aba wo yare mu. Di aduane pa, yɛ mmirika, fa nsa gu, na yɛ mogya mu nsunsuansoɔ nhwehwɛmu daa."
+            "vomiting": {
+                "en": "Vomiting can be caused by infections, food poisoning, or other illnesses. Stay hydrated and seek medical advice if severe or persistent.",
+                "ak": "Nsii betumi afi yare, aduane a ɛho ntew, anaa ɔyare foforɔ. Nom nsuo pii na kɔhwehwɛ oduruyɛfoɔ."
             },
-            # Add more conditions as needed
+            "rash": {
+                "en": "Skin rashes can be caused by allergies, infections, or irritants. Keep the area clean and dry. Seek medical care if spreading or severe.",
+                "ak": "Mmogya betumi afi allergies, yare, anaa nneɛma a ɛhaw. Hwɛ sɛ ɛda ho fɛ na ɛyɛ hyew. Sɛ ɛtrɛw anaa ɛyɛ den a, kɔhwehwɛ oduruyɛfoɔ."
+            },
+
+            # Treatments
+            "paracetamol": {
+                "en": "Paracetamol is used to reduce pain and fever. Follow dosage instructions and do not exceed the recommended amount.",
+                "ak": "Paracetamol yɛ aduro a wɔde twa yaw ne ɔhyew so. Di kyerɛwsɛm so na mmfa dodo."
+            },
+            "oral rehydration": {
+                "en": "Oral rehydration solution (ORS) treats dehydration, especially from diarrhea. Mix clean water, salt, and sugar as instructed.",
+                "ak": "ORS boa ma nsuo a ɛyera fi nipadua mu san ba. Fa nsuo, nkyene ne sukuruwa bɔ bom sɛnea wɔkyerɛ."
+            },
+            "antibiotics": {
+                "en": "Antibiotics treat bacterial infections. Only use when prescribed by a doctor. Do not misuse or overuse.",
+                "ak": "Antibiotics yɛ nnuro a wɔde sa yare a ɛfi bacteria mu. Fa no sɛ oduruyɛfoɔ pɛ na mmfa dodo."
+            },
+
+            # Preventive advice
+            "hand washing": {
+                "en": "Wash your hands regularly with soap and water to prevent infections.",
+                "ak": "Hohor wo nsam daa fa samina ne nsuo so na to ban yare."
+            },
+            "vaccination": {
+                "en": "Vaccines protect against many diseases. Make sure you and your children are up to date on all vaccinations.",
+                "ak": "Vaccine boa ma yare pii ho ban. Hwɛ sɛ wo ne wo mma anya vaccine a ehia."
+            },
         }
+
+    def retrieve_best_context(self, question: str, language: str = "en") -> str:
+        """
+        Improved retrieval: returns the best matching passage from the knowledge base for the question.
+        Uses word overlap scoring. Returns None if no good match.
+        """
+        import re
+        question_words = set(re.findall(r"\w+", question.lower()))
+        best_score = 0
+        best_entry = None
+        for key, entry in self.medical_knowledge.items():
+            entry_words = set(re.findall(r"\w+", key.lower()))
+            overlap = question_words & entry_words
+            score = len(overlap)
+            # Also check if the key appears in the question as a substring (bonus)
+            if key.lower() in question.lower():
+                score += 2
+            if score > best_score:
+                best_score = score
+                best_entry = entry[language] if language in entry else entry.get("en", "")
+        # Only return if the score is above a threshold (e.g., 1)
+        if best_score >= 1 and best_entry:
+            return best_entry
+        return None
+
         
         logger.info("AI Manager initialized with offline medical knowledge")
     
@@ -274,7 +361,7 @@ class AIModelManager:
         context: str = None
     ) -> dict:
         """
-        Generate a response to a medical question using BioBERT and Khaya AI
+        Generate a response to a medical question using BioBERT with fallback to local knowledge
         
         Args:
             question: The user's question
@@ -287,71 +374,117 @@ class AIModelManager:
         try:
             if not self._ready:
                 await self.initialize()
+            
+            # Ensure MedicalQA is initialized
+            if not hasattr(self.medical_qa, 'initialized') or not self.medical_qa.initialized:
+                await self.medical_qa.initialize()
                 
             # Auto-detect language if not specified
             if language == "auto":
                 language = self.detect_language(question)
-                
-            # Check for emergency conditions in both languages
-            emergency_response = await asyncio.to_thread(self.check_emergency_condition, question, language)
-            if emergency_response:
-                return await asyncio.to_thread(self.format_response, emergency_response, language, is_emergency=True)
             
-            # Use BioBERT for medical QA
-            try:
-                # If no context provided, use the question as context
-                qa_context = context or question
+            # Ensure we have a valid language
+            if language not in ["en", "ak"]:
+                language = "en"
                 
-                # Get answer from BioBERT
+            # Check for emergency conditions
+            emergency_response = self.check_emergency_condition(question, language)
+            if emergency_response:
+                return self.format_response(
+                    emergency_response,
+                    language,
+                    source="Emergency Check",
+                    is_emergency=True,
+                    confidence=1.0
+                )
+            
+            # Try to get answer from MedicalQA (BioBERT with fallbacks)
+            try:
+                # Use improved context retrieval for BioBERT
+                context_passage = self.retrieve_best_context(question, language)
                 qa_result = await self.medical_qa.answer_question(
                     question=question,
-                    context=qa_context,
-                    language=language
+                    language=language,
+                    context=context_passage
                 )
                 
-                # Format the response
-                return await asyncio.to_thread(
-                    self.format_response,
-                    qa_result["answer"],
-                    language,
-                    source=qa_result.get("model", "BioBERT"),
-                    confidence=qa_result.get("confidence", 0.0)
-                )
+                # Log the response for debugging
+                logger.info(f"MedicalQA response: {qa_result}")
                 
-            except Exception as e:
-                logger.error(f"Error in BioBERT QA: {str(e)}", exc_info=True)
-                
-                # Fallback to local knowledge base if BioBERT fails
-                local_response = await self.search_health_info(question)
-                if local_response:
-                    # Translate if needed
-                    response_text = local_response[0]['content']
-                    if language == "ak":
-                        response_text = await self.medical_qa.translate_text(response_text, "ak")
-                        
-                    return await asyncio.to_thread(
-                        self.format_response,
-                        response_text,
-                        language,
-                        source="Local Knowledge Base"
+                # If we got a valid response with confidence > 0, use it
+                if qa_result.get("confidence", 0) > 0:
+                    return self.format_response(
+                        qa_result["answer"],
+                        language=language,
+                        source=qa_result.get("source", "BioBERT"),
+                        confidence=float(qa_result.get("confidence", 0.0))
                     )
                 
-                # Final fallback
-                fallback_msg = (
-                    "Mepa wo kyɛw, m'ani nnye ho. Yɛsrɛ wo san aye akyiri bi."
-                    if language == "ak" else
-                    "I'm sorry, I encountered an error processing your request. Please try again later."
-                )
-                return await asyncio.to_thread(self.format_response, fallback_msg, language, is_error=True)
+                # If low confidence, fall through to local knowledge
+                logger.warning(f"Low confidence response from MedicalQA: {qa_result}")
+                
+            except Exception as e:
+                logger.error(f"Error in MedicalQA: {str(e)}", exc_info=True)
+            
+            # Fallback 1: Try improved context retrieval (direct answer if not used above)
+            try:
+                context_passage = self.retrieve_best_context(question, language)
+                if context_passage:
+                    return self.format_response(
+                        context_passage,
+                        language=language,
+                        source="Local Knowledge Base",
+                        confidence=0.7
+                    )
+            except Exception as e:
+                logger.error(f"Error in improved context retrieval fallback: {str(e)}", exc_info=True)
+            
+            # Fallback 2: Try web search if enabled
+            if settings.ENABLE_WEB_SEARCH:
+                try:
+                    search_results = await self.search_health_info(question)
+                    if search_results and len(search_results) > 0:
+                        return self.format_response(
+                            search_results[0]['content'],
+                            language=language,
+                            source=search_results[0].get('source', 'Web Search'),
+                            confidence=0.6
+                        )
+                except Exception as e:
+                    logger.error(f"Error in web search fallback: {str(e)}", exc_info=True)
+            
+            # Final fallback: Generic response
+            fallback_msg = (
+                "Mepa wo kyɛw, m'ani nnye ho. Yɛsrɛ wo san aye akyiri bi anaa kɔbisa oduruyɛfoɔ."
+                if language == "ak" else
+                "I'm sorry, I couldn't find a specific answer to your question. Please try rephrasing or consult a healthcare professional for medical advice."
+            )
+            
+            return self.format_response(
+                fallback_msg,
+                language=language,
+                source="System",
+                confidence=0.1,
+                is_error=False
+            )
             
         except Exception as e:
-            logger.error(f"Error generating medical response: {e}")
+            logger.critical(f"Critical error in generate_medical_response: {str(e)}", exc_info=True)
+            
+            # Critical error response
             error_msg = (
-                "Mepa wo kyɛw, m'ani nnye ho. Yɛsrɛ wo san aye akyiri bi."
+                "Mepa wo kyɛw, ɛsɔreɛ bi baa mu. Yɛsrɛ wo san aye akyiri bi."
                 if language == "ak" else
-                "I'm sorry, I encountered an error processing your request. Please try again later."
+                "I'm sorry, I encountered an unexpected error. Please try again later."
             )
-            return self.format_response(error_msg, language, is_error=True)
+            
+            return self.format_response(
+                error_msg,
+                language=language,
+                source="System",
+                is_error=True,
+                confidence=0.0
+            )
     
     def format_response(
         self, 
