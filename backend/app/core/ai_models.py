@@ -113,23 +113,36 @@ class AIModelManager:
     def retrieve_best_context(self, question: str, language: str = "en") -> str:
         """
         Improved retrieval: returns the best matching passage from the knowledge base for the question.
-        Uses word overlap scoring. Returns None if no good match.
+        Now robust to punctuation, plural/singular, and common question forms.
         """
         import re
-        question_words = set(re.findall(r"\w+", question.lower()))
+        import logging
+        logger = logging.getLogger(__name__)
+        # Normalize question: lowercase, remove punctuation
+        normalized_question = re.sub(r'[^a-zA-Z0-9\s]', '', question.lower())
+        question_words = set(re.findall(r"\w+", normalized_question))
         best_score = 0
         best_entry = None
+        best_key = None
         for key, entry in self.medical_knowledge.items():
-            entry_words = set(re.findall(r"\w+", key.lower()))
+            # Normalize key (disease/symptom)
+            key_norm = re.sub(r'[^a-zA-Z0-9\s]', '', key.lower())
+            entry_words = set(re.findall(r"\w+", key_norm))
             overlap = question_words & entry_words
             score = len(overlap)
-            # Also check if the key appears in the question as a substring (bonus)
-            if key.lower() in question.lower():
+            # Bonus if key appears as a word or at end of question (e.g., 'malaria' in 'symptoms of malaria')
+            if re.search(rf'\b{re.escape(key_norm)}\b', normalized_question):
+                score += 3
+            elif normalized_question.endswith(key_norm):
                 score += 2
+            # Bonus for substring match (legacy)
+            elif key_norm in normalized_question:
+                score += 1
             if score > best_score:
                 best_score = score
                 best_entry = entry[language] if language in entry else entry.get("en", "")
-        # Only return if the score is above a threshold (e.g., 1)
+                best_key = key
+        logger.debug(f"[retrieve_best_context] Q: '{question}' | Matched: '{best_key}' | Score: {best_score}")
         if best_score >= 1 and best_entry:
             return best_entry
         return None
@@ -413,8 +426,10 @@ class AIModelManager:
                 
                 # If we got a valid response with confidence > 0, use it
                 if qa_result.get("confidence", 0) > 0:
+                    # Use answer if present, else fallback to response or a default string
+                    answer_val = qa_result.get("answer") or qa_result.get("response") or "No answer provided"
                     return self.format_response(
-                        qa_result["answer"],
+                        answer_val,
                         language=language,
                         source=qa_result.get("source", "BioBERT"),
                         confidence=float(qa_result.get("confidence", 0.0))
@@ -424,7 +439,7 @@ class AIModelManager:
                 logger.warning(f"Low confidence response from MedicalQA: {qa_result}")
                 
             except Exception as e:
-                logger.error(f"Error in MedicalQA: {str(e)}", exc_info=True)
+                logger.error(f"Error in MedicalQA: {str(e)} | QA result: {locals().get('qa_result', None)}", exc_info=True)
             
             # Fallback 1: Try improved context retrieval (direct answer if not used above)
             try:
@@ -509,7 +524,9 @@ class AIModelManager:
         Returns:
             dict: Formatted response object
         """
+        # Always include both 'answer' and 'response' keys for compatibility
         return {
+            "answer": response_text,
             "response": response_text,
             "language": language,
             "source": source or "Medical AI",

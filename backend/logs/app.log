@@ -718,3 +718,97 @@ fastapi.exceptions.HTTPException
 2025-08-07 11:01:25,773 - app.core.medical_qa - INFO - Using fallback translation implementation
 2025-08-07 13:23:34,285 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
 2025-08-07 13:23:41,525 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 13:42:47,523 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 13:42:54,528 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 13:47:21,696 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\asare\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-08-08 13:56:30,522 - app.api.routes.health - INFO - [Health Query 37d5d02d-7520-41a0-80e3-68ec8e266a9d] Received question: what are symptoms of malaria?... (lang: en)
+2025-08-08 13:56:30,525 - app.api.routes.health - DEBUG - [Health Query 37d5d02d-7520-41a0-80e3-68ec8e266a9d] Generating response...
+2025-08-08 13:56:30,558 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 13:56:36,026 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 13:56:46,011 - app.core.medical_qa - ERROR - Error in web search: name 'search_web' is not defined
+2025-08-08 13:56:46,026 - app.core.ai_models - INFO - MedicalQA response: {'answer': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'confidence': 0.0026264735497534275, 'model': 'BioBERT', 'translated': False}
+2025-08-08 13:56:46,029 - app.api.routes.health - ERROR - [Health Query 37d5d02d-7520-41a0-80e3-68ec8e266a9d] Invalid response from AI service. Response: {'response': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'source': 'BioBERT', 'is_emergency': False, 'is_error': False, 'confidence': 0.0026264735497534275, 'model': 'BioBERT', 'translation_model': 'Khaya AI', 'timestamp': '2025-08-08T13:56:46.029572'}
+2025-08-08 13:56:46,031 - app.api.routes.health - ERROR - [Health Query 37d5d02d-7520-41a0-80e3-68ec8e266a9d] Error generating response: Invalid response from AI service
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 85, in ask_health_question
+    raise ValueError(error_msg)
+ValueError: Invalid response from AI service
+2025-08-08 13:56:46,044 - app.api.routes.health - ERROR - [Health Query 37d5d02d-7520-41a0-80e3-68ec8e266a9d] HTTP 500 error: Error generating response: Invalid response from AI service
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 85, in ask_health_question
+    raise ValueError(error_msg)
+ValueError: Invalid response from AI service
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 94, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-08 13:57:12,903 - app.api.routes.health - INFO - [Health Query 70c65a8d-b514-401e-b008-57659db039fd] Received question: what are symptoms of malaria?... (lang: en)
+2025-08-08 13:57:12,903 - app.api.routes.health - DEBUG - [Health Query 70c65a8d-b514-401e-b008-57659db039fd] Generating response...
+2025-08-08 13:57:12,903 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 13:57:16,870 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 13:57:25,879 - app.core.medical_qa - ERROR - Error in web search: name 'search_web' is not defined
+2025-08-08 13:57:25,879 - app.core.ai_models - INFO - MedicalQA response: {'answer': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'confidence': 0.002833336591720581, 'model': 'BioBERT', 'translated': False}
+2025-08-08 13:57:25,879 - app.api.routes.health - ERROR - [Health Query 70c65a8d-b514-401e-b008-57659db039fd] Invalid response from AI service. Response: {'response': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'source': 'BioBERT', 'is_emergency': False, 'is_error': False, 'confidence': 0.002833336591720581, 'model': 'BioBERT', 'translation_model': 'Khaya AI', 'timestamp': '2025-08-08T13:57:25.879892'}
+2025-08-08 13:57:25,881 - app.api.routes.health - ERROR - [Health Query 70c65a8d-b514-401e-b008-57659db039fd] Error generating response: Invalid response from AI service
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 85, in ask_health_question
+    raise ValueError(error_msg)
+ValueError: Invalid response from AI service
+2025-08-08 13:57:25,881 - app.api.routes.health - ERROR - [Health Query 70c65a8d-b514-401e-b008-57659db039fd] HTTP 500 error: Error generating response: Invalid response from AI service
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 85, in ask_health_question
+    raise ValueError(error_msg)
+ValueError: Invalid response from AI service
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asare\OneDrive\Desktop\virtual\backend\app\api\routes\health.py", line 94, in ask_health_question
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-08-08 14:19:58,603 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 14:20:05,430 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 14:21:09,783 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 14:21:20,976 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 14:21:21,389 - app.api.routes.health - INFO - [Health Query 2ca38805-4d5e-4f70-8d35-f9d7c6b6adfe] Received question: what are symptoms of malaria?... (lang: en)
+2025-08-08 14:21:21,389 - app.api.routes.health - DEBUG - [Health Query 2ca38805-4d5e-4f70-8d35-f9d7c6b6adfe] Generating response...
+2025-08-08 14:21:21,389 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 14:21:24,327 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 14:21:35,167 - app.core.medical_qa - ERROR - Error in web search: name 'search_web' is not defined
+2025-08-08 14:21:35,167 - app.core.ai_models - INFO - MedicalQA response: {'answer': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'confidence': 0.0028669708408415318, 'model': 'BioBERT', 'translated': False}
+2025-08-08 14:21:35,669 - app.api.routes.health - DEBUG - [Health Query 2ca38805-4d5e-4f70-8d35-f9d7c6b6adfe] Saved to database
+2025-08-08 14:21:35,677 - app.api.routes.health - INFO - [Health Query 2ca38805-4d5e-4f70-8d35-f9d7c6b6adfe] Successfully processed in 14.29s
+2025-08-08 15:13:16,812 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 15:13:22,348 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 15:20:49,439 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 15:20:55,983 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 15:26:27,016 - app.api.routes.health - INFO - [Health Query cce2d582-3d71-49ef-b70a-f5de8a1062d6] Received question: what are symptoms of malaria?... (lang: en)
+2025-08-08 15:26:27,016 - app.api.routes.health - DEBUG - [Health Query cce2d582-3d71-49ef-b70a-f5de8a1062d6] Generating response...
+2025-08-08 15:26:27,016 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 15:26:39,840 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 15:26:39,841 - app.core.ai_models - DEBUG - [retrieve_best_context] Q: 'what are symptoms of malaria?' | Matched: 'malaria' | Score: 4
+2025-08-08 15:26:52,632 - app.core.medical_qa - ERROR - Error in web search: name 'search_web' is not defined
+2025-08-08 15:26:52,639 - app.core.ai_models - INFO - MedicalQA response: {'answer': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'confidence': 0.002768592443317175, 'model': 'BioBERT', 'translated': False}
+2025-08-08 15:26:52,829 - app.api.routes.health - DEBUG - [Health Query cce2d582-3d71-49ef-b70a-f5de8a1062d6] Saved to database
+2025-08-08 15:26:52,841 - app.api.routes.health - INFO - [Health Query cce2d582-3d71-49ef-b70a-f5de8a1062d6] Successfully processed in 25.82s
+2025-08-08 15:37:24,679 - app.api.routes.health - INFO - [Health Query 1f61b359-f58c-456e-8fbc-12bd76307791] Received question: what are symptoms of malaria?... (lang: en)
+2025-08-08 15:37:24,680 - app.api.routes.health - DEBUG - [Health Query 1f61b359-f58c-456e-8fbc-12bd76307791] Generating response...
+2025-08-08 15:37:24,683 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-08 15:37:37,842 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-08 15:37:37,842 - app.core.ai_models - DEBUG - [retrieve_best_context] Q: 'what are symptoms of malaria?' | Matched: 'malaria' | Score: 4
+2025-08-08 15:37:47,589 - app.core.medical_qa - ERROR - Error in web search: name 'search_web' is not defined
+2025-08-08 15:37:47,589 - app.core.ai_models - INFO - MedicalQA response: {'answer': "I couldn't find a specific answer to your medical question. For accurate medical advice, please consult with a healthcare professional.", 'language': 'en', 'confidence': 0.002962677273899317, 'model': 'BioBERT', 'translated': False}
+2025-08-08 15:37:47,860 - app.api.routes.health - DEBUG - [Health Query 1f61b359-f58c-456e-8fbc-12bd76307791] Saved to database
+2025-08-08 15:37:47,860 - app.api.routes.health - INFO - [Health Query 1f61b359-f58c-456e-8fbc-12bd76307791] Successfully processed in 23.18s
+2025-08-09 07:37:07,976 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-09 07:37:08,440 - app.core.medical_qa - INFO - Loading BioBERT model: monologg/biobert_v1.1_pubmed
+2025-08-09 07:37:17,347 - app.core.medical_qa - INFO - Using fallback translation implementation
+2025-08-09 07:37:17,591 - app.core.medical_qa - INFO - Using fallback translation implementation
