@@ -1,51 +1,8 @@
-# Core dependencies
 fastapi==0.104.1
-uvicorn[standard]==0.24.0
-python-multipart==0.0.6
-python-jose[cryptography]==3.3.0
+uvicorn==0.24.0
+python-jose[cryptography]>=3.3.0
 passlib[bcrypt]==1.7.4
-motor==3.3.2
-pymongo==4.6.0
-aiohttp==3.9.1
-pydantic==2.5.0
-pydantic-settings==2.1.0
+python-multipart==0.0.6
 python-dotenv==1.0.0
-
-# Machine Learning & NLP
-torch>=2.0.0,<3.0.0  # PyTorch with version constraint for compatibility
-transformers>=4.30.0,<5.0.0
-datasets>=2.14.0,<3.0.0
-sentencepiece>=0.1.99,<0.2.0
-protobuf>=3.20.0,<4.0.0
-tqdm>=4.65.0,<5.0.0
-numpy>=1.24.0,<2.0.0
-pandas>=2.0.0,<3.0.0
-scikit-learn>=1.2.0,<2.0.0
-
-# BioBERT and related
-tokenizers>=0.13.3,<0.15.0  # Required for BioBERT
-safetensors>=0.3.1,<1.0.0  # For model loading
-accelerate>=0.20.3,<1.0.0  # For distributed training/inference
-
-# Translation
-huggingface-hub>=0.16.0,<1.0.0
-sacremoses>=0.0.53,<0.1.0  # For tokenization
-
-# Text processing
-regex>=2022.10.31,<2024.0.0  # Required by transformers
-requests>=2.28.2,<3.0.0  # For HTTP requests
-
-# Development
-tensorboard>=2.12.0,<3.0.0
-black>=23.0.0,<24.0.0
-isort>=5.12.0,<6.0.0
-flake8>=6.0.0,<7.0.0
-mypy>=1.0.0,<2.0.0
-pytest>=7.4.0,<8.0.0
-pytest-asyncio>=0.21.0,<1.0.0
-
-# Note: The following are included in the requirements but have known issues on Windows:
-# - fairseq (requires C++ build tools)
-# - torchaudio (may require specific CUDA versions)
-# - biobert-pytorch (using transformers' AutoModelForQuestionAnswering instead)
-# - sentence-transformers (not needed with direct transformers usage)
+pymongo==4.5.0
+email-validator==2.1.0.post1

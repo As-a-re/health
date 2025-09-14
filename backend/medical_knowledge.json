@@ -1,0 +1,276 @@
+{
+  "diseases": [
+    {
+      "name": "Influenza",
+      "synonyms": ["Flu", "Seasonal flu"],
+      "type": "Viral infection",
+      "transmission": "Airborne droplets",
+      "risk_groups": ["Children", "Elderly", "Immunocompromised"],
+      "symptoms": ["fever", "cough", "sore throat", "fatigue", "body aches", "chills"],
+      "causes": ["influenza virus (types A, B, C)"],
+      "treatment": ["rest", "fluids", "antiviral medications"],
+      "precautions": ["hand washing", "vaccination", "covering mouth when coughing"],
+      "translations": {
+        "ak": {
+          "name": "Asraafo",
+          "synonyms": ["Asraafo"],
+          "type": "Yardwam a ɛyɛ yareɛ",
+          "transmission": "Nsuo a ɛfiri anom kɔ ɛwim mu",
+          "risk_groups": ["Mma", "Abanimfoɔ", "Nnipa a wɔn ahoɔden ntumi nnyina hɔ"],
+          "symptoms": ["abufuw", "kɔkɔɔ", "nwene yareɛ", "ahosɛpɔw", "honam mu yareɛ", "ahotɔ"],
+          "causes": ["asraafoɔ yareɛ (A, B, C ahorow)"],
+          "treatment": ["serew ho", "nom nsu pii", "aduru a ɛko tia yareɛ"],
+          "precautions": ["nsa ho nhyehyɛeɛ", "ayaresa a wɔde bɛsi akan", "de wo nsa kata wo anom sɛ woresuam"]
+        }
+      }
+    },
+    {
+      "name": "Malaria",
+      "synonyms": [],
+      "type": "Parasitic infection",
+      "transmission": "Mosquito bite (Anopheles species)",
+      "risk_groups": ["People living in endemic areas", "Travelers to endemic areas", "Children under 5"],
+      "symptoms": ["fever", "chills", "sweating", "headache", "nausea", "muscle pain"],
+      "causes": ["Plasmodium parasites transmitted by Anopheles mosquitoes"],
+      "treatment": ["antimalarial drugs", "artemisinin-based combination therapy", "supportive care"],
+      "precautions": ["mosquito nets", "insect repellents", "prophylactic medication in endemic areas"],
+      "translations": {
+        "ak": {
+          "name": "Atiridii",
+          "synonyms": ["Atiridii"],
+          "type": "Yareɛ a ɛfiri mmoawa mu",
+          "transmission": "Anwummere a ɛnam anwummere a wɔfrɛ no Anopheles so ba",
+          "risk_groups": ["Nnipa a wɔte mmeae a atiridii wɔ hɔ", "Nnipa a wɔkɔ mmeae a atiridii wɔ hɔ", "Mma a wɔwɔ mfe 5 ase"],
+          "symptoms": ["abufuw", "ahotɔ", "ahobammɔn", "ti yareɛ", "ayehu", "honam mu yareɛ"],
+          "causes": ["mmoawa a wɔfrɛ wo Plasmodium a ɛfiri anwummere a ɛyɛ Anopheles mu ba"],
+          "treatment": ["aduru a ɛko tia atiridii", "ayaresa a ɛfa artemisinin ho", "mmoa a wɔde ma nnipa"],
+          "precautions": ["anwummere asie", "nwini a ɛko tia anwummere", "aduru a wɔnom sɛ wokɔ mmeae a atiridii wɔ hɔ"]
+        }
+      }
+    },
+    {
+      "name": "COVID-19",
+      "synonyms": ["Coronavirus disease 2019", "SARS-CoV-2 infection"],
+      "type": "Viral infection",
+      "transmission": "Airborne droplets, surface contact",
+      "risk_groups": ["Elderly", "People with chronic diseases", "Healthcare workers"],
+      "symptoms": ["fever", "dry cough", "fatigue", "loss of taste or smell", "shortness of breath"],
+      "causes": ["SARS-CoV-2 virus"],
+      "treatment": ["supportive care", "antiviral medications in severe cases", "oxygen therapy if needed"],
+      "precautions": ["mask wearing", "vaccination", "hand hygiene", "physical distancing"],
+      "translations": {
+        "ak": {
+          "name": "Koronayareɛ",
+          "synonyms": ["Koronayareɛ 2019", "SARS-CoV-2 yareɛ"],
+          "type": "Yardwam a ɛyɛ yareɛ",
+          "transmission": "Nsuo a ɛfiri anom kɔ ɛwim mu, nneɛma a wɔde nsa ka",
+          "risk_groups": ["Abanimfoɔ", "Nnipa a wɔwɔ yareɛ a ɛnyɛ den", "Yarehwɛfoɔ"],
+          "symptoms": ["abufuw", "kɔkɔɔ a ɛyɛ den", "ahosɛpɔw", "anom nnam anaa nkyene nni hɔ", "mframa a ɛnyɛ dɛ"],
+          "causes": ["SARS-CoV-2 yareɛ"],
+          "treatment": ["mmoa a wɔde ma nnipa", "aduru a ɛko tia yareɛ sɛ yareɛ no yɛ den", "mframa a wɔde ma sɛ ɛho hia"],
+          "precautions": ["de to mu", "ayaresa a wɔde bɛsi akan", "nsa ho nhyehyɛeɛ", "gyina ho akyiri"]
+        }
+      }
+    },
+    {
+      "name": "Diabetes Mellitus",
+      "synonyms": ["Diabetes", "Type 1 Diabetes", "Type 2 Diabetes"],
+      "type": "Chronic metabolic disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Obese individuals", "Family history", "Elderly"],
+      "symptoms": ["increased thirst", "frequent urination", "fatigue", "blurred vision", "slow-healing wounds"],
+      "causes": ["insulin deficiency", "insulin resistance", "autoimmune destruction of beta cells"],
+      "treatment": ["insulin therapy", "diet control", "exercise", "oral hypoglycemic agents"],
+      "precautions": ["regular blood sugar monitoring", "healthy lifestyle", "balanced diet"],
+      "translations": {
+        "ak": {
+          "name": "Kwashiorkor",
+          "synonyms": ["Kwashiorkor", "Kwashiorkor Type 1", "Kwashiorkor Type 2"],
+          "type": "Yareɛ a ɛfa mogya mu sukari ho",
+          "transmission": "Ɛnyɛ ɔyare a ɛkɔ fa obi foforo",
+          "risk_groups": ["Nnipa a wɔn ho ntew dodo", "Abusua mu yareɛ", "Abanimfoɔ"],
+          "symptoms": ["nsuom a ɛyɛ den", "sradeɛ a ɛyɛ denden", "ahosɛpɔw", "aniwa a ɛnhu yie", "nneɛma a ɛnnyɛ dɛ ɛyare"],
+          "causes": ["insulin a ɛnni hɔ", "insulin a ɛnyɛ adwuma yie", "yareɛ a ɛsɛe insulin a ɛwɔ yafunu mu"],
+          "treatment": ["insulin a wɔde sa yareɛ", "aduane a wɔnom", "adwuma a wɔyɛ", "aduru a wɔnom a ɛma mogya mu sukari so atu"],
+          "precautions": ["hwɛ mogya mu sukari daa", "nneɛma a ɛyɛ fɛ a woyɛ", "aduane a ɛyɛ fɛ"]
+        }
+      }
+    },
+    {
+      "name": "Hypertension",
+      "synonyms": ["High blood pressure"],
+      "type": "Chronic cardiovascular condition",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Adults", "Obese individuals", "Stress-prone individuals"],
+      "symptoms": ["often none", "headache", "dizziness", "shortness of breath"],
+      "causes": ["genetic factors", "high salt intake", "obesity", "stress"],
+      "treatment": ["antihypertensive medications", "dietary changes", "exercise", "stress management"],
+      "precautions": ["regular blood pressure checks", "low-salt diet", "maintaining healthy weight"]
+    },
+    {
+      "name": "Asthma",
+      "synonyms": ["Bronchial asthma"],
+      "type": "Chronic respiratory disease",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Allergic individuals", "Children", "People exposed to pollution"],
+      "symptoms": ["wheezing", "shortness of breath", "chest tightness", "coughing (especially at night)"],
+      "causes": ["allergic reactions", "air pollution", "respiratory infections", "genetic predisposition"],
+      "treatment": ["inhaled corticosteroids", "bronchodilators", "avoiding triggers"],
+      "precautions": ["avoid allergens", "use preventive inhalers", "monitor peak flow"]
+    },
+    {
+      "name": "Tuberculosis",
+      "synonyms": ["TB", "Consumption"],
+      "type": "Bacterial infection",
+      "transmission": "Airborne droplets",
+      "risk_groups": ["Immunocompromised", "Close contacts of TB patients", "People in crowded conditions"],
+      "symptoms": ["persistent cough", "fever", "night sweats", "weight loss", "fatigue"],
+      "causes": ["Mycobacterium tuberculosis infection"],
+      "treatment": ["long-term antibiotics (e.g., isoniazid, rifampicin)", "directly observed therapy"],
+      "precautions": ["BCG vaccination", "good ventilation", "mask use in high-risk areas"]
+    },
+    {
+      "name": "Hepatitis B",
+      "synonyms": ["HBV infection"],
+      "type": "Viral infection",
+      "transmission": "Bloodborne, sexual contact, or mother to child",
+      "risk_groups": ["Healthcare workers", "Infants born to infected mothers", "People with multiple sexual partners"],
+      "symptoms": ["jaundice", "fatigue", "abdominal pain", "dark urine", "nausea"],
+      "causes": ["Hepatitis B virus infection"],
+      "treatment": ["antiviral medications", "liver monitoring", "supportive care"],
+      "precautions": ["vaccination", "safe sex practices", "avoid sharing needles"]
+    },
+    {
+      "name": "Pneumonia",
+      "synonyms": [],
+      "type": "Lung infection",
+      "transmission": "Airborne droplets",
+      "risk_groups": ["Children under 5", "Elderly", "People with weakened immune system"],
+      "symptoms": ["cough with phlegm", "fever", "shortness of breath", "chest pain"],
+      "causes": ["bacterial infection", "viral infection", "fungal infection"],
+      "treatment": ["antibiotics for bacterial causes", "antivirals if indicated", "oxygen therapy"],
+      "precautions": ["vaccination", "hand hygiene", "avoid smoking"]
+    },
+    {
+      "name": "Cholera",
+      "synonyms": [],
+      "type": "Bacterial infection",
+      "transmission": "Contaminated water/food",
+      "risk_groups": ["People in areas with poor sanitation", "Travelers to endemic regions"],
+      "symptoms": ["profuse watery diarrhea", "vomiting", "dehydration", "muscle cramps"],
+      "causes": ["Vibrio cholerae bacteria via contaminated water/food"],
+      "treatment": ["oral rehydration salts", "intravenous fluids", "antibiotics in severe cases"],
+      "precautions": ["safe drinking water", "proper sanitation", "hand washing"]
+    },
+    {
+      "name": "Migraine",
+      "synonyms": ["Migraine headache"],
+      "type": "Neurological disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["People with family history", "Women (hormonal factors)"],
+      "symptoms": ["throbbing headache", "nausea", "sensitivity to light", "aura"],
+      "causes": ["genetic factors", "hormonal changes", "stress", "certain foods"],
+      "treatment": ["pain relievers", "triptans", "preventive medications"],
+      "precautions": ["avoid triggers", "maintain regular sleep", "stress management"]
+    },
+    {
+      "name": "Anemia",
+      "synonyms": ["Iron deficiency anemia", "Vitamin B12 deficiency anemia"],
+      "type": "Hematologic disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Women of childbearing age", "Children", "People with chronic diseases"],
+      "symptoms": ["fatigue", "pale skin", "shortness of breath", "dizziness"],
+      "causes": ["iron deficiency", "vitamin B12 deficiency", "chronic disease"],
+      "treatment": ["iron supplements", "vitamin B12 injections", "treat underlying cause"],
+      "precautions": ["balanced diet", "regular check-ups"]
+    },
+    {
+      "name": "Alzheimer's Disease",
+      "synonyms": ["Alzheimer's", "Senile dementia"],
+      "type": "Neurodegenerative disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Elderly", "Family history"],
+      "symptoms": ["memory loss", "confusion", "difficulty completing tasks", "mood changes"],
+      "causes": ["genetic factors", "age-related changes", "brain cell damage"],
+      "treatment": ["medications to slow progression", "supportive care"],
+      "precautions": ["mental exercises", "healthy diet", "regular physical activity"]
+    },
+    {
+      "name": "Parkinson's Disease",
+      "synonyms": ["Parkinsonism"],
+      "type": "Neurodegenerative disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Elderly", "Genetic predisposition"],
+      "symptoms": ["tremors", "stiffness", "slow movement", "balance problems"],
+      "causes": ["loss of dopamine-producing brain cells", "genetic and environmental factors"],
+      "treatment": ["dopamine replacement therapy", "physical therapy"],
+      "precautions": ["regular exercise", "healthy diet"]
+    },
+    {
+      "name": "Rheumatoid Arthritis",
+      "synonyms": ["RA"],
+      "type": "Autoimmune disease",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Women", "Genetic predisposition"],
+      "symptoms": ["joint pain", "swelling", "stiffness", "fatigue"],
+      "causes": ["autoimmune inflammation", "genetic factors"],
+      "treatment": ["anti-inflammatory drugs", "disease-modifying antirheumatic drugs (DMARDs)"],
+      "precautions": ["regular exercise", "healthy weight", "joint care"]
+    },
+    {
+      "name": "Depression",
+      "synonyms": ["Major depressive disorder", "Clinical depression"],
+      "type": "Mental health disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["People with family history", "Those under stress"],
+      "symptoms": ["persistent sadness", "loss of interest", "fatigue", "sleep disturbances"],
+      "causes": ["genetic predisposition", "stress", "chemical imbalance"],
+      "treatment": ["antidepressants", "psychotherapy", "lifestyle changes"],
+      "precautions": ["stress management", "social support", "regular physical activity"]
+    },
+    {
+      "name": "Epilepsy",
+      "synonyms": ["Seizure disorder"],
+      "type": "Neurological disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["People with brain injury", "Family history"],
+      "symptoms": ["recurrent seizures", "temporary confusion", "loss of consciousness"],
+      "causes": ["brain injury", "genetic factors", "infections"],
+      "treatment": ["antiepileptic medications", "surgery in some cases"],
+      "precautions": ["avoid seizure triggers", "medication adherence"]
+    },
+    {
+      "name": "Chronic Kidney Disease",
+      "synonyms": ["CKD", "Chronic renal failure"],
+      "type": "Chronic disease",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Diabetes patients", "Hypertension patients", "Older adults"],
+      "symptoms": ["fatigue", "swelling", "nausea", "urinary changes"],
+      "causes": ["diabetes", "hypertension", "glomerulonephritis"],
+      "treatment": ["blood pressure control", "dialysis", "kidney transplant"],
+      "precautions": ["regular screening", "healthy diet", "avoid nephrotoxic drugs"]
+    },
+    {
+      "name": "Osteoporosis",
+      "synonyms": [],
+      "type": "Metabolic bone disease",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Postmenopausal women", "Elderly", "People with calcium/vitamin D deficiency"],
+      "symptoms": ["bone fractures", "back pain", "loss of height"],
+      "causes": ["age-related bone loss", "hormonal changes", "calcium/vitamin D deficiency"],
+      "treatment": ["bisphosphonates", "calcium and vitamin D supplements"],
+      "precautions": ["weight-bearing exercise", "adequate nutrition"]
+    },
+    {
+      "name": "Gastroesophageal Reflux Disease",
+      "synonyms": ["GERD", "Acid reflux"],
+      "type": "Digestive disorder",
+      "transmission": "Non-communicable",
+      "risk_groups": ["Obese individuals", "Pregnant women", "People with hiatal hernia"],
+      "symptoms": ["heartburn", "regurgitation", "chest pain", "difficulty swallowing"],
+      "causes": ["weak lower esophageal sphincter", "obesity", "diet"],
+      "treatment": ["antacids", "proton pump inhibitors", "lifestyle changes"],
+      "precautions": ["avoid trigger foods", "eat smaller meals", "elevate head during sleep"]
+    }
+  ]
+}

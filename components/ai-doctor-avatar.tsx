@@ -14,6 +14,7 @@ interface AIDoctorAvatarProps {
   currentMessage?: string
   onSpeechToggle: () => void
   speechEnabled: boolean
+  size?: 'sm' | 'md' | 'lg'
 }
 
 const doctorData = {
@@ -31,6 +32,24 @@ const doctorData = {
   },
 }
 
+const sizeClasses = {
+  sm: {
+    container: 'w-12 h-12',
+    text: 'text-xs',
+    icon: 'h-3 w-3',
+  },
+  md: {
+    container: 'w-16 h-16',
+    text: 'text-sm',
+    icon: 'h-4 w-4',
+  },
+  lg: {
+    container: 'w-24 h-24',
+    text: 'text-base',
+    icon: 'h-5 w-5',
+  },
+}
+
 export function AIDoctorAvatar({
   avatar,
   isSpeaking,
@@ -38,11 +57,14 @@ export function AIDoctorAvatar({
   currentMessage,
   onSpeechToggle,
   speechEnabled,
+  size = 'md',
 }: AIDoctorAvatarProps) {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [emotion, setEmotion] = useState<"neutral" | "happy" | "concerned" | "focused">("neutral")
 
   const doctor = doctorData[avatar]
+
+  const sizeClass = sizeClasses[size] || sizeClasses.md
 
   // Update emotion based on conversation state
   useEffect(() => {
@@ -68,11 +90,11 @@ export function AIDoctorAvatar({
   }
 
   return (
-    <Card className="w-full max-w-sm mx-auto bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 shadow-lg">
+    <Card className={`w-full max-w-sm mx-auto bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 shadow-lg ${sizeClass.container}`}>
       <CardContent className="p-4">
         {/* Doctor Info Header */}
         <div className="text-center mb-4">
-          <h3 className="font-bold text-lg text-gray-800">{doctor.name}</h3>
+          <h3 className={`font-bold text-lg text-gray-800 ${sizeClass.text}`}>{doctor.name}</h3>
           <Badge variant="secondary" className="bg-blue-100 text-blue-800">
             {doctor.title}
           </Badge>
@@ -102,7 +124,7 @@ export function AIDoctorAvatar({
               className="absolute top-2 right-2 bg-white/80 hover:bg-white"
               onClick={() => setIsFullscreen(!isFullscreen)}
             >
-              <Maximize2 className="h-4 w-4" />
+              <Maximize2 className={`h-4 w-4 ${sizeClass.icon}`} />
             </Button>
 
             {/* Vital Signs Animation (when active) */}
@@ -154,7 +176,7 @@ export function AIDoctorAvatar({
                 speechEnabled ? "text-green-600 border-green-200 hover:bg-green-50" : "text-gray-400 border-gray-200"
               }`}
             >
-              {speechEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+              {speechEnabled ? <Volume2 className={`h-4 w-4 ${sizeClass.icon}`} /> : <VolumeX className={`h-4 w-4 ${sizeClass.icon}`} />}
             </Button>
           </div>
 

@@ -4,6 +4,26 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/a
 interface ApiResponse<T> {
   data?: T;
   error?: string;
+  status?: number;
+}
+
+interface UserCredentials {
+  email: string;
+  password: string;
+}
+
+interface AuthResponse {
+  access_token: string;
+  token_type: string;
+  user: {
+    id: string;
+    email: string;
+    full_name: string;
+    preferred_language: string;
+    is_active: boolean;
+    created_at?: string;
+  };
+  expires_in?: number;
 }
 
 interface HealthQueryRequest {
@@ -14,35 +34,9 @@ interface HealthQueryRequest {
 
 interface HealthQueryResponse {
   response: string;
-  confidence: number;
   language: string;
-  model_used: string;
-  query_id?: string;
-  translation?: Record<string, string>;
-}
-
-interface UserCredentials {
-  email: string;
-  password: string;
-}
-
-interface UserRegistration extends UserCredentials {
-  full_name?: string;
-  preferred_language?: string;
-}
-
-interface AuthResponse {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-  user: {
-    id: string;
-    email: string;
-    full_name?: string;
-    preferred_language: string;
-    is_active: boolean;
-    created_at: string;
-  };
+  confidence?: number;
+  model_used?: string;
 }
 
 class ApiClient {
@@ -50,235 +44,212 @@ class ApiClient {
   private token: string | null = null;
 
   constructor(baseUrl: string = API_BASE_URL) {
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+    this.loadToken();
+  }
 
-    // Load token from localStorage if available
+  private loadToken(): void {
     if (typeof window !== "undefined") {
       this.token = localStorage.getItem("auth_token");
     }
   }
 
-  private async request<T>(
-    endpoint: string, 
-    options: RequestInit = {}
-  ): Promise<ApiResponse<T>> {
-    try {
-      const url = `${this.baseUrl}${endpoint}`;
-      
-      // Create headers object
-      const headers = new Headers();
-      
-      // Add default content type if not already set
-      const contentTypeHeader = options.headers && (
-        (options.headers as Headers).get?.('Content-Type') ||
-        (options.headers as Record<string, string>)?.['Content-Type'] ||
-        (options.headers as Record<string, string>)?.['content-type']
-      );
-      
-      if (!contentTypeHeader && !(options.body instanceof FormData)) {
-        headers.append('Content-Type', 'application/json');
-      }
-      
-      // Add any custom headers
-      if (options.headers) {
-        if (options.headers instanceof Headers) {
-          options.headers.forEach((value, key) => {
-            headers.set(key, value);
-          });
-        } else if (Array.isArray(options.headers)) {
-          options.headers.forEach(([key, value]) => {
-            headers.set(key, value);
-          });
-        } else {
-          Object.entries(options.headers).forEach(([key, value]) => {
-            if (Array.isArray(value)) {
-              value.forEach((v: string) => headers.append(key, v));
-            } else if (value) {
-              headers.set(key, value as string);
-            }
-          });
-        }
-      }
-      
-      // Add auth header if token exists
-      if (this.token) {
-        headers.set('Authorization', `Bearer ${this.token}`);
-      }
-
-      const fetchOptions: RequestInit = {
-        ...options,
-        headers,
-      };
-
-      const response = await fetch(url, fetchOptions);
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.detail || `HTTP ${response.status}`;
-        throw new Error(errorMessage);
-      }
-
-      const data = await response.json();
-      return { data };
-    } catch (error) {
-      console.error("API request failed:", error);
-      return { 
-        error: error instanceof Error ? error.message : "Unknown error" 
-      };
-    }
-  }
-
-  // Authentication methods
-  async register(userData: UserRegistration): Promise<ApiResponse<AuthResponse>> {
-    const response = await this.request<AuthResponse>("/auth/register", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    });
-
-    if (response.data) {
-      this.setToken(response.data.access_token);
-    }
-
-    return response;
-  }
-
-  async login(credentials: UserCredentials): Promise<ApiResponse<AuthResponse>> {
-    // Convert credentials to URL-encoded form data
-    const formData = new URLSearchParams();
-    formData.append('email', credentials.email);
-    formData.append('password', credentials.password);
-
-    const response = await this.request<AuthResponse>("/auth/login", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
-      },
-      body: formData.toString(),
-    });
-
-    if (response.data) {
-      this.setToken(response.data.access_token);
-    }
-
-    return response;
-  }
-
-  async getCurrentUser(): Promise<ApiResponse<AuthResponse['user']>> {
-    return this.request<AuthResponse['user']>("/auth/me");
-  }
-
-  logout(): void {
-    this.token = null;
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("auth_token");
-    }
-  }
-
-  private setToken(token: string): void {
+  public setToken(token: string | null): void {
     this.token = token;
     if (typeof window !== "undefined") {
-      localStorage.setItem("auth_token", token);
+      if (token) {
+        localStorage.setItem("auth_token", token);
+      } else {
+        localStorage.removeItem("auth_token");
+      }
     }
   }
 
-  // Health query methods
   async askHealthQuestion(
     query: HealthQueryRequest
   ): Promise<ApiResponse<HealthQueryResponse>> {
-    try {
-      const response = await this.request<HealthQueryResponse>("/health/ask", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          question: query.question,
-          language: query.language || 'auto',
-          include_translation: query.include_translation || false
-        }),
-      });
-
-      // Handle specific error cases
-      if (response.error) {
-        console.error('[Health API] Error:', response.error);
-        if (response.error.includes('401')) {
-          this.logout();
-          if (typeof window !== 'undefined') {
-            window.location.href = '/login';
-          }
-        }
-      }
-      
-      return response;
-    } catch (error) {
-      console.error('[Health API] Request failed:', error);
-      return {
-        error: error instanceof Error ? error.message : 'Failed to process health question'
-      };
-    }
+    return this.request<HealthQueryResponse>("/health/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(query),
+    });
   }
 
   async askHealthQuestionAudio(
-    audioFile: File, 
+    audioFile: File,
     language = "auto"
-  ): Promise<ApiResponse<unknown>> {
+  ): Promise<ApiResponse<HealthQueryResponse>> {
     const formData = new FormData();
     formData.append("audio_file", audioFile);
     formData.append("language", language);
 
+    return this.request<HealthQueryResponse>("/health/speak", {
+      method: "POST",
+      body: formData,
+      // Don't set Content-Type header, let the browser set it with the correct boundary
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+  }
+
+  // Authentication methods
+  async login(credentials: UserCredentials): Promise<ApiResponse<AuthResponse>> {
     try {
-      const response = await this.request("/api/health/ask-audio", {
+      const response = await this.request<AuthResponse>("/auth/login", {
         method: "POST",
-        body: formData,
-        // Don't set Content-Type header, let the browser set it with the correct boundary
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password
+        }),
       });
-
+      
+      console.log('[API] Login response:', response);
       return response;
     } catch (error) {
-      console.error("Audio API request failed:", error);
-      return {
-        error: error instanceof Error ? error.message : "Failed to process audio question"
+      console.error('[API] Login error:', error);
+      return { 
+        error: error instanceof Error ? error.message : 'Login failed. Please try again.',
+        status: 500
       };
     }
   }
 
-  // User profile methods
-  async getUserHistory(
-    page = 1, 
-    pageSize = 20
-  ): Promise<ApiResponse<unknown>> {
-    return this.request("/user/history", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  async getCurrentUser(): Promise<ApiResponse<AuthResponse['user']>> {
+    try {
+      const response = await this.request<{ user: AuthResponse['user'] }>("/auth/me");
+      return {
+        data: response.data?.user,
+        error: response.error,
+        status: response.status
+      };
+    } catch (error) {
+      console.error('[API] Get current user error:', error);
+      return { 
+        error: error instanceof Error ? error.message : 'Failed to fetch current user',
+        status: 401
+      };
+    }
   }
 
-  async updateUserProfile(
-    profileData: Record<string, unknown>
-  ): Promise<ApiResponse<unknown>> {
-    return this.request("/user/profile", {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(profileData),
-    });
+  async register(userData: {
+    email: string;
+    password: string;
+    full_name: string;
+    preferred_language?: string;
+  }): Promise<ApiResponse<AuthResponse>> {
+    try {
+      const response = await this.request<AuthResponse>("/auth/signup", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          email: userData.email,
+          password: userData.password,
+          full_name: userData.full_name,
+          preferred_language: userData.preferred_language || 'en'
+        }),
+      });
+      
+      console.log('[API] Register response:', response);
+      return response;
+    } catch (error) {
+      console.error('[API] Register error:', error);
+      return { 
+        error: error instanceof Error ? error.message : 'Registration failed. Please try again.',
+        status: 500
+      };
+    }
   }
 
-  // Health check
-  async healthCheck(): Promise<ApiResponse<{ status: string }>> {
-    return this.request<{ status: string }>("/api/health");
+  async logout(): Promise<{ success: boolean }> {
+    try {
+      // Clear the token from the API client and localStorage
+      this.setToken(null);
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('auth_token');
+      }
+      return { success: true };
+    } catch (error) {
+      console.error('[API] Logout error:', error);
+      return { success: false };
+    }
+  }
+
+  private async request<T>(
+    endpoint: string,
+    options: RequestInit = {}
+  ): Promise<ApiResponse<T>> {
+    const headers = new Headers(options.headers);
+    const isJson = headers.get('Content-Type')?.includes('application/json');
+    
+    // Always get the latest token from localStorage in case it was updated
+    const token = this.token || (typeof window !== 'undefined' ? localStorage.getItem('auth_token') : null);
+    
+    if (token && !endpoint.startsWith('/auth/')) {
+      headers.set('Authorization', `Bearer ${token}`);
+      console.log('[API] Added Authorization header to request');
+    } else {
+      console.log('[API] No token available for request');
+    }
+
+    try {
+      console.log(`[API] ${options.method || 'GET'} ${endpoint}`, {
+        headers: Object.fromEntries(headers.entries()),
+        body: options.body ? (isJson ? JSON.parse(options.body as string) : options.body) : undefined
+      });
+
+      const response = await fetch(`${this.baseUrl}${endpoint}`, {
+        ...options,
+        headers,
+      });
+
+      const responseData = await response.json().catch(() => ({}));
+      
+      if (!response.ok) {
+        console.error(`[API] Request failed: ${response.status}`, {
+          status: response.status,
+          statusText: response.statusText,
+          url: `${this.baseUrl}${endpoint}`,
+          response: responseData,
+        });
+        
+        if (response.status === 422 && responseData.detail) {
+          // Handle validation errors
+          const errorMessage = Array.isArray(responseData.detail) 
+            ? responseData.detail.map((d: any) => d.msg || d.message).join('; ')
+            : responseData.detail;
+          throw new Error(errorMessage || 'Validation failed');
+        }
+        
+        throw new Error(
+          responseData.detail || 
+          responseData.message || 
+          `Request failed with status ${response.status}`
+        );
+      }
+
+      return { data: responseData };
+    } catch (error) {
+      console.error(`[API] Request failed:`, error);
+      return { 
+        error: error instanceof Error 
+          ? error.message 
+          : typeof error === 'string' 
+            ? error 
+            : 'An unknown error occurred' 
+      };
+    }
   }
 }
 
-// Create singleton instance
-export const api = new ApiClient();
+const api = new ApiClient();
+const apiClient = api; // For backward compatibility
+
+export { api, apiClient };

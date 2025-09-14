@@ -9,20 +9,25 @@ interface User {
   full_name?: string
   preferred_language: string
   is_active: boolean
-  created_at: string
+  created_at?: string
+}
+
+interface AuthError {
+  title: string;
+  message: string;
 }
 
 interface AuthContextType {
   user: User | null
   isLoading: boolean
   isAuthenticated: boolean
-  login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>
+  login: (email: string, password: string) => Promise<{ success: boolean; error?: AuthError }>
   register: (userData: {
     email: string
     password: string
-    full_name?: string
+    full_name: string
     preferred_language?: string
-  }) => Promise<{ success: boolean; error?: string }>
+  }) => Promise<{ success: boolean; error?: AuthError }>
   logout: () => void
   refreshUser: () => Promise<void>
 }
@@ -32,6 +37,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<AuthError | null>(null)
 
   const isAuthenticated = !!user
 
@@ -42,80 +48,113 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const checkAuthStatus = async () => {
     try {
-      const token = localStorage.getItem("auth_token")
+      const token = localStorage.getItem('auth_token');
       if (!token) {
-        setIsLoading(false)
-        return
+        setIsLoading(false);
+        return;
       }
 
-      const response = await api.getCurrentUser()
-      if (response.data) {
-        setUser(response.data as User)
+      const result = await api.getCurrentUser();
+      if (result.data) {
+        setUser(result.data);
       } else {
-        // Invalid token, clear it
-        localStorage.removeItem("auth_token")
+        // Clear invalid token
+        localStorage.removeItem('auth_token');
       }
     } catch (error) {
-      console.error("Auth check failed:", error)
-      localStorage.removeItem("auth_token")
+      console.error('Auth check failed:', error);
+      localStorage.removeItem('auth_token');
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   const login = async (email: string, password: string) => {
     try {
-      console.log('Attempting login with email:', { email }) // Debug log
-      const response = await api.login({ email, password })
-      console.log('API login response:', response) // Debug log
-
-      if (response.data) {
-        console.log('Login successful, user data:', response.data.user) // Debug log
-        setUser(response.data.user)
-        return { success: true }
-      } else {
-        console.error('Login failed, error:', response.error) // Debug log
-        return { 
-          success: false, 
-          error: response.error || "Login failed. Please check your credentials and try again." 
-        }
+      setIsLoading(true);
+      setError(null);
+      
+      const result = await api.login({ email, password });
+      
+      if (result.error) {
+        setError({
+          title: 'Login Failed',
+          message: result.error
+        });
+        return { success: false };
       }
-    } catch (error) {
-      console.error('Login error caught:', error) // Debug log
-      const errorMessage = error instanceof Error ? error.message : 'Failed to connect to server'
-      return { 
-        success: false, 
-        error: errorMessage.includes('401') 
-          ? 'Invalid email or password' 
-          : `Login failed: ${errorMessage}` 
+      
+      if (result.data?.user) {
+        setUser(result.data.user);
+        return { success: true };
       }
+      
+      throw new Error('No user data received');
+      
+    } catch (err) {
+      console.error('Login error:', err);
+      setError({
+        title: 'Login Error',
+        message: err instanceof Error ? err.message : 'An unknown error occurred'
+      });
+      return { success: false };
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   const register = async (userData: {
-    email: string
-    password: string
-    full_name?: string
-    preferred_language?: string
+    email: string;
+    password: string;
+    full_name: string;
+    preferred_language?: string;
   }) => {
     try {
+      setIsLoading(true);
+      setError(null);
+      
       const response = await api.register({
         email: userData.email,
         password: userData.password,
         full_name: userData.full_name,
         preferred_language: userData.preferred_language || 'en'
-      })
+      });
 
       if (response.data) {
-        setUser(response.data.user)
-        return { success: true }
+        // Handle successful registration
+        if (response.data.access_token) {
+          localStorage.setItem('auth_token', response.data.access_token);
+          api.setToken(response.data.access_token);
+          
+          if (response.data.user) {
+            setUser(response.data.user);
+          } else {
+            // If no user data in response, fetch it
+            const userResult = await api.getCurrentUser();
+            if (userResult.data) {
+              setUser(userResult.data);
+            }
+          }
+        }
+        return { success: true };
       } else {
-        return { success: false, error: response.error || "Registration failed" }
+        setError({
+          title: 'Registration Failed',
+          message: response.error || 'Registration failed. Please try again.'
+        });
+        return { success: false };
       }
     } catch (error) {
-      return { success: false, error: "Registration failed. Please try again." }
+      console.error('Registration error:', error);
+      setError({
+        title: 'Registration Error',
+        message: error instanceof Error ? error.message : 'An unknown error occurred'
+      });
+      return { success: false };
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   const logout = () => {
     api.logout()

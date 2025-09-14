@@ -10,6 +10,25 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 interface AvatarSelectorProps {
   selectedAvatar: "male" | "female" | null
   onAvatarChange: (avatar: "male" | "female" | null) => void
+  size?: 'sm' | 'md' | 'lg'
+}
+
+const sizeClasses = {
+  sm: {
+    button: 'h-8 w-8',
+    icon: 'h-3 w-3',
+    text: 'text-xs',
+  },
+  md: {
+    button: 'h-10 w-10',
+    icon: 'h-4 w-4',
+    text: 'text-sm',
+  },
+  lg: {
+    button: 'h-12 w-12',
+    icon: 'h-5 w-5',
+    text: 'text-base',
+  },
 }
 
 const avatarOptions = [
@@ -35,31 +54,28 @@ const avatarOptions = [
   },
 ]
 
-export function AvatarSelector({ selectedAvatar, onAvatarChange }: AvatarSelectorProps) {
+export function AvatarSelector({ selectedAvatar, onAvatarChange, size = 'md' }: AvatarSelectorProps) {
   const [isOpen, setIsOpen] = useState(false)
-
+  const sizeClass = sizeClasses[size] || sizeClasses.md
   const selectedDoctor = avatarOptions.find((avatar) => avatar.id === selectedAvatar)
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2 h-10 bg-transparent">
+        <Button variant="outline" className={`flex items-center gap-2 bg-transparent ${sizeClass.button}`}>
           {selectedAvatar ? (
             <>
-              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-200">
+              <div className={`${sizeClass.button} rounded-full overflow-hidden border-2 border-blue-200`}>
                 <img
-                  src={selectedDoctor?.thumbnail || "/placeholder.svg"}
+                  src={selectedDoctor?.thumbnail}
                   alt={selectedDoctor?.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <span className="hidden sm:inline font-medium">{selectedDoctor?.name}</span>
+              <span className={`hidden sm:inline ${sizeClass.text}`}>{selectedDoctor?.name.split(' ')[1]}</span>
             </>
           ) : (
-            <>
-              <User className="h-4 w-4" />
-              <span className="hidden sm:inline">Choose Your Doctor</span>
-            </>
+            <User className={sizeClass.icon} />
           )}
         </Button>
       </PopoverTrigger>
@@ -72,61 +88,28 @@ export function AvatarSelector({ selectedAvatar, onAvatarChange }: AvatarSelecto
           <p className="text-sm text-gray-600 mt-1">Select a realistic 3D virtual doctor to assist you</p>
         </div>
         <div className="p-3 space-y-3">
-          {avatarOptions.map((avatar) => (
-            <Card
-              key={avatar.id}
-              className={`cursor-pointer transition-all hover:bg-gray-50 hover:shadow-md ${
-                selectedAvatar === avatar.id ? "ring-2 ring-blue-500 bg-blue-50 shadow-lg" : ""
-              }`}
-              onClick={() => {
-                onAvatarChange(avatar.id)
-                setIsOpen(false)
-              }}
-            >
-              <CardContent className="p-4">
-                <div className="flex items-start gap-4">
-                  <div className="relative">
-                    <div className="w-20 h-24 rounded-lg overflow-hidden border-2 border-gray-200 bg-gradient-to-b from-blue-100 to-white">
-                      <img
-                        src={avatar.thumbnail || "/placeholder.svg"}
-                        alt={avatar.name}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                    {selectedAvatar === avatar.id && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                        <UserCheck className="h-4 w-4 text-white" />
-                      </div>
-                    )}
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-2 py-0.5 rounded text-xs font-bold">
-                      3D
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h4 className="font-semibold text-base">{avatar.name}</h4>
-                      <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-xs">
-                        {avatar.title}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-gray-700 mb-2">{avatar.description}</p>
-                    <div className="space-y-1">
-                      <p className="text-xs text-blue-600 flex items-center gap-1">
-                        <span>🎤</span> {avatar.voice}
-                      </p>
-                      <p className="text-xs text-green-600 flex items-center gap-1">
-                        <span>👤</span> {avatar.personality}
-                      </p>
-                      <p className="text-xs text-purple-600 flex items-center gap-1">
-                        <span>🎮</span> Interactive 3D Model
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          {avatarOptions.map((option) => (
+            <div key={option.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                 onClick={() => {
+                   onAvatarChange(option.id)
+                   setIsOpen(false)
+                 }}>
+              <div className={`${sizeClass.button} rounded-full overflow-hidden border-2 ${selectedAvatar === option.id ? 'border-blue-500' : 'border-gray-200'}`}>
+                <img
+                  src={option.thumbnail}
+                  alt={option.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className={`font-medium ${sizeClass.text}`}>{option.name}</h4>
+                <p className={`text-gray-500 ${sizeClass.text}`}>{option.title}</p>
+              </div>
+              {selectedAvatar === option.id && (
+                <UserCheck className={`${sizeClass.icon} text-blue-500`} />
+              )}
+            </div>
           ))}
-
           <Button
             variant="ghost"
             className="w-full justify-start text-gray-600 hover:bg-gray-100"
@@ -135,7 +118,7 @@ export function AvatarSelector({ selectedAvatar, onAvatarChange }: AvatarSelecto
               setIsOpen(false)
             }}
           >
-            <User className="h-4 w-4 mr-2" />
+            <User className={sizeClass.icon} />
             Continue without 3D Doctor (Text Only)
           </Button>
         </div>
