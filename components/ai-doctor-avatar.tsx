@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Volume2, VolumeX, Heart, Maximize2 } from "lucide-react"
@@ -90,8 +89,8 @@ export function AIDoctorAvatar({
   }
 
   return (
-    <Card className={`w-full max-w-sm mx-auto bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 shadow-lg ${sizeClass.container}`}>
-      <CardContent className="p-4">
+    <div className="w-full max-w-none mx-auto bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 shadow-lg">
+      <div className="p-4 h-full">
         {/* Doctor Info Header */}
         <div className="text-center mb-4">
           <h3 className={`font-bold text-lg text-gray-800 ${sizeClass.text}`}>{doctor.name}</h3>
@@ -112,8 +111,7 @@ export function AIDoctorAvatar({
                 : isListening
                   ? "border-blue-400 shadow-blue-200 shadow-lg"
                   : "border-gray-200"
-            }`}
-            style={{ height: "320px" }}
+            } h-[40vh] md:h-[55vh] lg:h-[70vh] w-full`}
           >
             <Simple3DDoctor gender={avatar} isSpeaking={isSpeaking} isListening={isListening} emotion={emotion} />
 
@@ -176,16 +174,8 @@ export function AIDoctorAvatar({
                 speechEnabled ? "text-green-600 border-green-200 hover:bg-green-50" : "text-gray-400 border-gray-200"
               }`}
             >
-              {speechEnabled ? <Volume2 className={`h-4 w-4 ${sizeClass.icon}`} /> : <VolumeX className={`h-4 w-4 ${sizeClass.icon}`} />}
+              {speechEnabled ? <Volume2 className={`h-4 w-4 ${sizeClass.icon}`}/> : <VolumeX className={`h-4 w-4 ${sizeClass.icon}`} />}
             </Button>
-          </div>
-
-          {/* 3D Model Info */}
-          <div className="text-center text-xs text-gray-500 bg-gray-50 rounded-lg p-2">
-            <p className="flex items-center justify-center gap-1">
-              <span>🎮</span> Interactive 3D Model
-            </p>
-            <p>Drag to rotate • Realistic human movements</p>
           </div>
 
           {/* Current Message Preview */}
@@ -195,7 +185,7 @@ export function AIDoctorAvatar({
             </div>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

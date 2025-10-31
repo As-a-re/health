@@ -7,6 +7,7 @@ import { Languages } from "lucide-react"
 interface LanguageToggleProps {
   currentLanguage: "en" | "ak"
   onLanguageChange: (language: "en" | "ak") => void
+  className?: string 
 }
 
 export function LanguageToggle({ currentLanguage, onLanguageChange }: LanguageToggleProps) {

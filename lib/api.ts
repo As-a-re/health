@@ -182,6 +182,39 @@ class ApiClient {
     }
   }
 
+  // Public HTTP methods
+  public async get<T = any>(url: string, config: Omit<RequestInit, 'method'> = {}): Promise<ApiResponse<T>> {
+    return this.request<T>(url, { ...config, method: 'GET' });
+  }
+
+  public async post<T = any>(url: string, data?: any, config: Omit<RequestInit, 'method' | 'body'> = {}): Promise<ApiResponse<T>> {
+    return this.request<T>(url, {
+      ...config,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...config.headers,
+      },
+      body: data ? JSON.stringify(data) : undefined,
+    });
+  }
+
+  public async put<T = any>(url: string, data?: any, config: Omit<RequestInit, 'method' | 'body'> = {}): Promise<ApiResponse<T>> {
+    return this.request<T>(url, {
+      ...config,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        ...config.headers,
+      },
+      body: data ? JSON.stringify(data) : undefined,
+    });
+  }
+
+  public async delete<T = any>(url: string, config: Omit<RequestInit, 'method'> = {}): Promise<ApiResponse<T>> {
+    return this.request<T>(url, { ...config, method: 'DELETE' });
+  }
+
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}

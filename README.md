@@ -82,7 +82,7 @@ python scripts/setup_database.py
 python scripts/train_akan_model.py
 
 # Start backend server
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 \`\`\`
 
 ### 2. Frontend Setup

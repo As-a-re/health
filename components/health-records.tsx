@@ -43,10 +43,13 @@ export function HealthRecords() {
 
   const loadHealthRecords = async () => {
     try {
-      const response = await apiClient.getUserHistory(currentPage, 10)
+      const response = await apiClient.get<{
+        queries: HealthQuery[];
+        total_pages: number;
+      }>(`/user/history?page=${currentPage}&limit=10`);
       if (response.data) {
-        setQueries(response.data.queries)
-        setTotalPages(response.data.total_pages)
+        setQueries(response.data.queries || [])
+        setTotalPages(response.data.total_pages || 1)
       }
     } catch (error) {
       console.error("Failed to load health records:", error)
@@ -57,9 +60,14 @@ export function HealthRecords() {
 
   const loadUserStats = async () => {
     try {
-      const response = await apiClient.request("/user/stats")
+      const response = await apiClient.get<UserStats>("/user/stats");
       if (response.data) {
-        setStats(response.data)
+        setStats({
+          total_queries: response.data.total_queries || 0,
+          recent_queries: response.data.recent_queries || 0,
+          language_breakdown: response.data.language_breakdown || {},
+          member_since: response.data.member_since || new Date().toISOString()
+        })
       }
     } catch (error) {
       console.error("Failed to load user stats:", error)
@@ -68,10 +76,7 @@ export function HealthRecords() {
 
   const deleteQuery = async (queryId: string) => {
     try {
-      const response = await apiClient.request(`/user/history/${queryId}`, {
-        method: "DELETE",
-      })
-
+      const response = await apiClient.delete(`/user/history/${queryId}`);
       if (response.data) {
         setQueries(queries.filter((q) => q.id !== queryId))
         // Reload stats
