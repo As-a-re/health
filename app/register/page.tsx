@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Heart } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle, Heart } from "lucide-react"
 import { useAuth } from "@/hooks/use-auth"
 
 export default function RegisterPage() {
@@ -17,7 +18,7 @@ export default function RegisterPage() {
     full_name: "",
     preferred_language: "en"
   })
-  const [error, setError] = useState("")
+  const [error, setError] = useState<{ title: string; message: string } | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const { register } = useAuth()
   const router = useRouter()
@@ -32,10 +33,13 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError("")
+    setError(null)
     
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match")
+      setError({
+        title: "Validation Error",
+        message: "Passwords do not match"
+      })
       return
     }
 
@@ -50,13 +54,23 @@ export default function RegisterPage() {
       })
 
       if (result.success) {
-        // Redirect to dashboard on successful registration
         router.push("/dashboard")
       } else {
-        setError(result.error || "Registration failed. Please try again.")
+        const errorMessage = typeof result.error === 'string' 
+          ? result.error 
+          : result.error?.message || 'Registration failed. Please try again.';
+        
+        setError({
+          title: "Registration Failed",
+          message: errorMessage
+        })
       }
     } catch (err) {
-      setError("An unexpected error occurred. Please try again.")
+      const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred'
+      setError({
+        title: "Error",
+        message: errorMessage
+      })
     } finally {
       setIsLoading(false)
     }
@@ -77,9 +91,11 @@ export default function RegisterPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
-              <div className="bg-red-50 text-red-700 p-3 rounded-md text-sm">
-                {error}
-              </div>
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>{error.title}</AlertTitle>
+                <AlertDescription>{error.message}</AlertDescription>
+              </Alert>
             )}
             <div className="space-y-2">
               <Label htmlFor="full_name">Full Name</Label>
