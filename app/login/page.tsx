@@ -31,45 +31,53 @@ export default function LoginPage() {
   }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError(null)
-    
-    if (!email || !password) {
-      setError({
-        title: 'Missing Information',
-        message: 'Please enter both email and password.'
-      })
-      return
-    }
-    
-    setIsLoading(true)
-
-    try {
-      console.log('[Login] Attempting login...')
-      const result = await login(email, password)
-      
-      if (result.success) {
-        console.log('[Login] Success, redirecting...')
-        router.replace("/dashboard")
-      } else {
-        console.error('[Login] Failed:', result.error)
-        setError({
-          title: 'Login Failed',
-          message: result.error?.includes('401') 
-            ? 'Invalid email or password.' 
-            : result.error || 'Login failed. Please try again.'
-        })
-      }
-    } catch (err) {
-      console.error('[Login] Error:', err)
-      setError({
-        title: 'Error',
-        message: 'An unexpected error occurred. Please try again.'
-      })
-    } finally {
-      setIsLoading(false)
-    }
+  e.preventDefault()
+  setError(null)
+  
+  if (!email || !password) {
+    setError({
+      title: 'Missing Information',
+      message: 'Please enter both email and password.'
+    })
+    return
   }
+  
+  setIsLoading(true)
+
+  try {
+    console.log('[Login] Attempting login...')
+    const result = await login(email, password)
+    
+    if (result.success) {
+      console.log('[Login] Success, redirecting...')
+      router.replace("/dashboard")
+    } else {
+      console.error('[Login] Failed:', result.error)
+      // Handle both string and AuthError types
+      const errorMessage = typeof result.error === 'string' 
+        ? result.error 
+        : result.error?.message || 'Login failed. Please try again.';
+      
+      setError({
+        title: 'Login Failed',
+        message: errorMessage.includes('401') 
+          ? 'Invalid email or password.' 
+          : errorMessage
+      })
+    }
+  } catch (err) {
+    console.error('[Login] Error:', err)
+    const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred';
+    setError({
+      title: 'Error',
+      message: errorMessage.includes('401') 
+        ? 'Invalid email or password.' 
+        : errorMessage
+    })
+  } finally {
+    setIsLoading(false)
+  }
+}
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-50 p-4">
